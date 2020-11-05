@@ -1,7 +1,8 @@
 """Test pattern for other test"""
+from unittest.mock import patch
 from uuid import uuid4
 
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 
 from catalog.models import Product
 from accounts.models import CustomUser
@@ -13,7 +14,12 @@ class TestPattern(TestCase):
 
     def setUp(self) -> None:
         """Environment for tests"""
-        self.user = CustomUser.objects.create_user(username="test1", password="test1@1234")
+        self.factory = RequestFactory()
+
+        self.user = CustomUser.objects.create_user(
+            username="test1",
+            password="test1@1234"
+        )
 
         self.client.login(username="test1", password="test1@1234")
 
@@ -27,3 +33,8 @@ class TestPattern(TestCase):
 
         self.product_1.save()
         self.product_2.save()
+
+        self.stop_messages = patch('django.contrib.messages.add_message').start()
+
+    def tearDown(self) -> None:
+        self.stop_messages.stop()

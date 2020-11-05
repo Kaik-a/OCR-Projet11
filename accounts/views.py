@@ -12,7 +12,7 @@ from django.urls import reverse
 
 from search.navbar_decorator import navbar_search_decorator
 
-from .commands.commands import validate_subscription
+from .commands.commands import validate_subscription, mail_subscription, mail_password
 from .forms import LoginForm, SubscribeForm, CheckMailForm, ChangePasswordForm
 from .models import AwaitingData, CustomUser
 
@@ -87,44 +87,7 @@ def subscribe(request) -> HttpResponse:
 
         if form.is_valid():
             try:
-                guid = uuid.uuid4()
-                for key, value in form.data.items():
-                    if key == "csrfmiddlewaretoken":
-                        continue
-                    AwaitingData(
-                        guid=guid, type='subscription', key=key, value=value
-                    ).save()
-
-                subject = 'Création de compte'
-                message = f'Bonjour {form.data.get("first_name")},\n' \
-                          f'\n' \
-                          f'Vous venez de créer un compte sur Pur Beurre et nous ' \
-                          f'vous en remercions.\n' \
-                          f'\n' \
-                          f'Afin de valider votre souscription, merci de cliquer sur' \
-                          f' le lien suivant. \n' \
-                          f'\n' \
-                          f'http://127.0.0.1:8000/accounts/validate/{guid}\n' \
-                          f'\n' \
-                          f'Ce lien sera valide 24h.\n' \
-                          f'\n' \
-                          f'Cordialement,\n' \
-                          f'\n' \
-                          f"L'équipe Pur Beurre"
-
-                send_mail(
-                    subject,
-                    message,
-                    'pur.beurre.mbi@gmail.com',
-                    [form.data.get("email")]
-                )
-
-                messages.add_message(
-                    request,
-                    25,
-                    f"Un email vous a été envoyé à l'adresse {form.data.get('email')} "
-                    f"veuillez utiliser le lien fourni afin de valider votre compte",
-                )
+                mail_subscription(request, form.data)
 
                 return redirect("accounts:login")
             except IntegrityError as error:
@@ -184,31 +147,8 @@ def send_reset(request, user: str) -> HttpResponse:
     :param str user: user to change password
     :return:
     """
-    user = CustomUser.objects.get(id=user)
-    guid = uuid.uuid4()
-    AwaitingData(guid=guid, type='password', key='user', value=user.id).save()
+    mail_password(user)
 
-    subject = 'Changement de mot de passe'
-    message = f'Bonjour {user.first_name},\n' \
-              f'\n' \
-              f'Vous avez oublié votre mot de passe ?\n' \
-              f'\n' \
-              f'Veuillez suivre le lien suivant pour le changer\n' \
-              f'\n' \
-              f'http://127.0.0.1:8000/accounts/validate/{guid}\n' \
-              f'\n' \
-              f'Ce lien sera valide 24h.\n' \
-              f'\n' \
-              f'Cordialement,\n' \
-              f'\n' \
-              f"L'équipe Pur Beurre"
-
-    send_mail(
-        subject,
-        message,
-        'pur.beurre.mbi@gmail.com',
-        [user.email]
-    )
     return redirect(reverse("home"))
 
 
