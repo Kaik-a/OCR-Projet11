@@ -22,7 +22,7 @@ class TestMail(TestPattern):
 
         assert len(mail.outbox) == 1
 
-        assert mail.outbox[0].subject == 'Création de compte'
+        self.assertEqual(mail.outbox[0].subject, 'Création de compte')
 
     def test_reset_password(self):
         """Test mail sent when resetting password"""
@@ -30,4 +30,4 @@ class TestMail(TestPattern):
 
         assert len(mail.outbox) == 1
 
-        assert mail.outbox[0].subject == 'Changement de mot de passe'
+        self.assertEqual(mail.outbox[0].subject, 'Changement de mot de passe')

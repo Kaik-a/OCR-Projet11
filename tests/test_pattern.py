@@ -15,10 +15,12 @@ class TestPattern(TestCase):
     def setUp(self) -> None:
         """Environment for tests"""
         self.factory = RequestFactory()
+        self.settings(EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend')
 
         self.user = CustomUser.objects.create_user(
             username="test1",
-            password="test1@1234"
+            password="test1@1234",
+            email="test@test.com"
         )
 
         self.client.login(username="test1", password="test1@1234")
@@ -36,5 +38,3 @@ class TestPattern(TestCase):
 
         self.stop_messages = patch('django.contrib.messages.add_message').start()
 
-    def tearDown(self) -> None:
-        self.stop_messages.stop()

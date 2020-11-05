@@ -106,7 +106,6 @@ def mail_password(user: str):
               f'Cordialement,\n' \
               f'\n' \
               f"L'équipe Pur Beurre"
-
     send_mail(
         subject,
         message,
