@@ -38,3 +38,50 @@ class TestViews(TestPattern):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
+
+    def test_check_mail(self):
+        """Load check mail"""
+        url = reverse("accounts:check_mail")
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_send_reset(self):
+        """Load send reset"""
+        url = reverse("accounts:send_reset", args=[self.user.id])
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_reset_password(self):
+        """Load reset password"""
+        url = reverse("accounts:reset_password", args=[self.user.id])
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_validate_password(self):
+        """Load validate on password"""
+        url = reverse("accounts:validate", args=[self.awaiting_data_1.guid])
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 302)
+
+        self.assertEqual(response.request['PATH_INFO'], '/accounts/validate/password')
+
+    def test_validate(self):
+        """Load validate on subscription"""
+        url = reverse("accounts:validate", args=[self.awaiting_data_2.guid])
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 302)
+
+        self.assertEqual(
+            response.request['PATH_INFO'],
+            '/accounts/validate/subscription'
+        )

@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from accounts.models import CustomUser, AwaitingData
 
 
-def validate_subscription(request, guid, messages):
+def validate_subscription(request, guid):
     try:
         CustomUser.objects.create_user(
             username=AwaitingData.objects.get(guid=guid, key="login").value,

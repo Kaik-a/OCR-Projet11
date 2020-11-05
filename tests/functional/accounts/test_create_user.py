@@ -1,11 +1,13 @@
 """Functional tests on account module"""
-from django.test import TestCase
 from django.urls import reverse
 
 from accounts.forms import SubscribeForm
+from accounts.commands.commands import validate_subscription
+from accounts.models import CustomUser
+from tests.test_pattern import TestPattern
 
 
-class TestCreateUser(TestCase):
+class TestCreateUser(TestPattern):
     """Functional tests"""
 
     def test_create_user(self):
@@ -29,3 +31,11 @@ class TestCreateUser(TestCase):
         self.assertEqual(response_2.status_code, 302)
 
         self.assertIn("login", response_2.url)
+
+    def test_validate_subscription(self):
+        """User must be created after validate_subscription"""
+        assert len(CustomUser.objects.all()) == 1
+
+        validate_subscription(self.factory, self.uuid_subscription)
+
+        assert len(CustomUser.objects.all()) == 2

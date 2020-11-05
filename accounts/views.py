@@ -116,7 +116,7 @@ def validate(request, guid: str) -> HttpResponse:
 
         type_of_validation = to_validate[0].type
         if type_of_validation == 'subscription':
-            validate_subscription(request, guid, messages)
+            validate_subscription(request, guid)
 
             to_validate.delete()
 
@@ -152,6 +152,7 @@ def send_reset(request, user: str) -> HttpResponse:
     return redirect(reverse("home"))
 
 
+@navbar_search_decorator
 def reset_password(request, user: str) -> HttpResponse:
     """
     Reset user's password.
@@ -181,6 +182,7 @@ def reset_password(request, user: str) -> HttpResponse:
     return render(request, "reset_password.html", {"form": form})
 
 
+@navbar_search_decorator
 def check_mail(request) -> HttpResponse:
     """
     Check if mail is in database.

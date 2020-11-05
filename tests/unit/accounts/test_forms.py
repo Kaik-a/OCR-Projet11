@@ -1,5 +1,5 @@
 """Test on account module's form"""
-from accounts.forms import LoginForm, SubscribeForm
+from accounts.forms import LoginForm, SubscribeForm, CheckMailForm, ChangePasswordForm
 from tests.test_pattern import TestPattern
 
 
@@ -14,15 +14,36 @@ class TestForms(TestPattern):
 
     def test_subscribe_form(self):
         """Test subscribe form"""
-        form = SubscribeForm(
-            data={
+        data = {
                 "login": "test_login",
                 "last_name": "test_last_name",
                 "first_name": "test_first_name",
                 "email": "test@mail.com",
                 "password": "test_password",
                 "confirm_password": "test_password",
-            }
-        )
+        }
+
+        assert SubscribeForm(data=data).is_valid()
+
+        data.update(confirm_password="test")
+
+        assert not SubscribeForm(data=data).is_valid()
+
+    def test_check_mail_form(self):
+        """Test check mail form"""
+        form = CheckMailForm(data={"email": "test@test.com"})
 
         assert form.is_valid()
+
+    def test_change_password_form(self):
+        """Test change password form"""
+        data = {
+            "new_password": "1234",
+            "confirm_new_password": "1234"
+        }
+
+        assert ChangePasswordForm(data=data).is_valid()
+
+        data.update(confirm_new_password="123")
+
+        assert not ChangePasswordForm(data=data).is_valid()
