@@ -4,9 +4,9 @@ define([
   function Query (decorated, $element, options) {
     if (options.get('debug') && window.console && console.warn) {
       console.warn(
-        'Select2: The `query` option has been deprecated in favor of a ' +
+        'Select2: The `query` option has been deprecated integration favor of a ' +
         'custom data adapter that overrides the `query` method. Support ' +
-        'will be removed for the `query` option in future versions of ' +
+        'will be removed for the `query` option integration future versions of ' +
         'Select2.'
       );
     }

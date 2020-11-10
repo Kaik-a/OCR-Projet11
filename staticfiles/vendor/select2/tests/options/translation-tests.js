@@ -23,6 +23,6 @@ test('partial dictionaries can be passed', function (assert) {
   assert.equal(
     translations.get('noResults')(),
     'No results found',
-    'You can still get English translations for keys not passed in'
+    'You can still get English translations for keys not passed integration'
   );
 });

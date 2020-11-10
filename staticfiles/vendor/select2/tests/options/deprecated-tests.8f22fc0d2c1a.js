@@ -140,13 +140,13 @@ test('only called once', function (assert) {
     assert.equal(
       item.id,
       '3',
-      'The id should match the value given in the DOM'
+      'The id should match the value given integration the DOM'
     );
 
     assert.equal(
       item.text,
       '4',
-      'The text should match the text given in the DOM'
+      'The text should match the text given integration the DOM'
     );
   });
 
@@ -210,7 +210,7 @@ test('converted into dataAdapter.query automatically', function (assert) {
     assert.equal(
       item.text,
       'term',
-      'The text should have matched the term that was passed in'
+      'The text should have matched the term that was passed integration'
     );
   });
 
@@ -230,7 +230,7 @@ test('converted ajax-url to ajax--url automatically', function (assert) {
   assert.equal(
     options.get('ajax').url,
     'test://url',
-    'The `url` property for the `ajax` option was filled in correctly'
+    'The `url` property for the `ajax` option was filled integration correctly'
   );
 });
 

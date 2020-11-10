@@ -412,7 +412,7 @@ test('empty optgroups are still shown when queried', function (assert) {
     assert.equal(
       item.children.length,
       0,
-      'There should be no children in the empty opgroup'
+      'There should be no children integration the empty opgroup'
     );
   });
 });

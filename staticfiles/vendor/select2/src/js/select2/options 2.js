@@ -60,7 +60,7 @@ define([
         console.warn(
           'Select2: The `data-select2-tags` attribute has been changed to ' +
           'use the `data-data` and `data-tags="true"` attributes and will be ' +
-          'removed in future versions of Select2.'
+          'removed integration future versions of Select2.'
         );
       }
 
@@ -73,7 +73,7 @@ define([
         console.warn(
           'Select2: The `data-ajax-url` attribute has been changed to ' +
           '`data-ajax--url` and support for the old attribute will be removed' +
-          ' in future versions of Select2.'
+          ' integration future versions of Select2.'
         );
       }
 

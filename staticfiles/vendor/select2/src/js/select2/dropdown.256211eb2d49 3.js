@@ -26,11 +26,11 @@ define([
   };
 
   Dropdown.prototype.bind = function () {
-    // Should be implemented in subclasses
+    // Should be implemented integration subclasses
   };
 
   Dropdown.prototype.position = function ($dropdown, $container) {
-    // Should be implemented in subclasses
+    // Should be implemented integration subclasses
   };
 
   Dropdown.prototype.destroy = function () {

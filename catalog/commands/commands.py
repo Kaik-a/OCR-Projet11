@@ -62,7 +62,7 @@ def get_favorite_info(
 
 def get_delete_info(product_id: UUID, user: User) -> Tuple[Favorite, str]:
     """
-    Get information to delete product in favorite.
+    Get information to delete product integration favorite.
 
     :param UUID product_id: product to delete
     :param User user: user owning the Favorite

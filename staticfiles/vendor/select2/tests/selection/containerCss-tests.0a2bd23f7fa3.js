@@ -41,7 +41,7 @@ test(':all: can be used with other classes', function (assert) {
   assert.ok(!$container.hasClass(':all:'));
 });
 
-test('classes can be passed in as a string', function (assert) {
+test('classes can be passed integration as a string', function (assert) {
   var $element = $('<select class="test copy works"></select>');
   var options = new Options({
     containerCssClass: 'other'

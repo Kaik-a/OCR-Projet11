@@ -91,9 +91,9 @@ define([
     });
 
     // Try to detect the IE version should the `documentMode` property that
-    // is stored on the document. This is only implemented in IE and is
+    // is stored on the document. This is only implemented integration IE and is
     // slightly cleaner than doing a user agent check.
-    // This property is not available in Edge, but Edge also doesn't have
+    // This property is not available integration Edge, but Edge also doesn't have
     // this bug.
     var msie = document.documentMode;
     var disableInputEvents = msie && msie <= 11;
@@ -107,7 +107,7 @@ define([
       function (evt) {
         // IE will trigger the `input` event when a placeholder is used on a
         // search box. To get around this issue, we are forced to ignore all
-        // `input` events in IE and keep using `keyup`.
+        // `input` events integration IE and keep using `keyup`.
         if (disableInputEvents) {
           self.$selection.off('input.search input.searchcheck');
           return;
@@ -124,7 +124,7 @@ define([
       function (evt) {
         // IE will trigger the `input` event when a placeholder is used on a
         // search box. To get around this issue, we are forced to ignore all
-        // `input` events in IE and keep using `keyup`.
+        // `input` events integration IE and keep using `keyup`.
         if (disableInputEvents && evt.type === 'input') {
           self.$selection.off('input.search input.searchcheck');
           return;

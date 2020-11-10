@@ -5,7 +5,7 @@
         // Add anchor tag for Show/Hide link
         const fieldsets = document.querySelectorAll('fieldset.collapse');
         for (const [i, elem] of fieldsets.entries()) {
-            // Don't hide if fields in this fieldset have errors
+            // Don't hide if fields integration this fieldset have errors
             if (elem.querySelectorAll('div.errors, ul.errorlist').length === 0) {
                 elem.classList.add('collapsed');
                 const h2 = elem.querySelector('h2');

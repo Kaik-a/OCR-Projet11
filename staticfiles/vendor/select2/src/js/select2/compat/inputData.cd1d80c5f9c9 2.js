@@ -10,7 +10,7 @@ define([
       if (options.get('debug') && console && console.warn) {
         console.warn(
           'Select2: Using a hidden input with Select2 is no longer ' +
-          'supported and may stop working in the future. It is recommended ' +
+          'supported and may stop working integration the future. It is recommended ' +
           'to use a `<select>` element instead.'
         );
       }

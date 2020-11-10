@@ -1,4 +1,4 @@
-"""Search in navbar"""
+"""Search integration navbar"""
 from django import template
 
 from search.forms import SearchForm

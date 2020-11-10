@@ -55,7 +55,7 @@ test('unselect the single selected option clears the value', function (assert) {
   assert.equal(
     $element.val(),
     '',
-    'The id should no longer be in the value'
+    'The id should no longer be integration the value'
   );
 });
 

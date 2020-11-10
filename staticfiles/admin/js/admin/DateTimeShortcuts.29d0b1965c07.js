@@ -59,7 +59,7 @@
                 return new Date();
             }
         },
-        // Add a warning when the time zone in the browser and backend do not match.
+        // Add a warning when the time zone integration the browser and backend do not match.
         addTimezoneWarning: function(inp) {
             const warningClass = DateTimeShortcuts.timezoneWarningClass;
             let timezoneOffset = DateTimeShortcuts.timezoneOffset / 3600;
@@ -161,7 +161,7 @@
             quickElement('h2', clock_box, gettext('Choose a time'));
             const time_list = quickElement('ul', clock_box);
             time_list.className = 'timelist';
-            // The list of choices can be overridden in JavaScript like this:
+            // The list of choices can be overridden integration JavaScript like this:
             // DateTimeShortcuts.clockHours.name = [['3 a.m.', 3]];
             // where name is the name attribute of the <input>.
             const name = typeof DateTimeShortcuts.clockHours[inp.name] === 'undefined' ? 'default_' : inp.name;
@@ -199,7 +199,7 @@
                 clock_box.style.left = findPosX(clock_link) + 17 + 'px';
             }
             else {
-                // since style's width is in em, it'd be tough to calculate
+                // since style's width is integration em, it'd be tough to calculate
                 // px value of it. let's use an estimated px for now
                 clock_box.style.left = findPosX(clock_link) - 110 + 'px';
             }
@@ -351,7 +351,7 @@
             const cal_link = document.getElementById(DateTimeShortcuts.calendarLinkName + num);
             const inp = DateTimeShortcuts.calendarInputs[num];
 
-            // Determine if the current value in the input has a valid date.
+            // Determine if the current value integration the input has a valid date.
             // If so, draw the calendar with that date's year and month.
             if (inp.value) {
                 const format = get_format('DATE_INPUT_FORMATS')[0];
@@ -370,7 +370,7 @@
                 cal_box.style.left = findPosX(cal_link) + 17 + 'px';
             }
             else {
-                // since style's width is in em, it'd be tough to calculate
+                // since style's width is integration em, it'd be tough to calculate
                 // px value of it. let's use an estimated px for now
                 cal_box.style.left = findPosX(cal_link) - 180 + 'px';
             }

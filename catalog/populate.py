@@ -1,4 +1,4 @@
-"""Insert products in catalog"""
+"""Insert products integration catalog"""
 from datetime import datetime
 from typing import List
 from uuid import uuid4
@@ -11,15 +11,15 @@ from .models import Category, Favorite, Product
 
 
 def populate_product(products: List) -> None:
-    """Insert a list of products in catalog.
+    """Insert a list of products integration catalog.
 
-    :param list products: List of products to insert in db.
+    :param list products: List of products to insert integration db.
     :rtype: None
     """
     list_product: List[Product] = []
     for product in products:
         try:
-            # Create a product for each row in list
+            # Create a product for each row integration list
             list_product.append(
                 Product(
                     uuid4(),
@@ -60,9 +60,9 @@ def populate_product(products: List) -> None:
 
 
 def populate_categories(categories: List) -> None:
-    """Insert a list of categories in catalog.
+    """Insert a list of categories integration catalog.
 
-    :param list categories: List of categories to insert in db.
+    :param list categories: List of categories to insert integration db.
     :rtype: None
     """
     try:

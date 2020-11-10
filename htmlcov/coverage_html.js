@@ -23,8 +23,8 @@ coverage.assign_shortkeys = function () {
 // Create the events for the help panel.
 coverage.wire_up_help_panel = function () {
     $("#keyboard_icon").click(function () {
-        // Show the help panel, and position it so the keyboard icon in the
-        // panel is in the same place as the keyboard icon in the header.
+        // Show the help panel, and position it so the keyboard icon integration the
+        // panel is integration the same place as the keyboard icon integration the header.
         $(".help_panel").show();
         var koff = $("#keyboard_icon").offset();
         var poff = $("#panel_icon").position();
@@ -443,7 +443,7 @@ coverage.to_prev_chunk_nicely = function () {
     coverage.to_prev_chunk();
 };
 
-// Select line number lineno, or if it is in a colored chunk, select the
+// Select line number lineno, or if it is integration a colored chunk, select the
 // entire chunk
 coverage.select_line_or_chunk = function (lineno) {
     var c = coverage;
@@ -453,7 +453,7 @@ coverage.select_line_or_chunk = function (lineno) {
     }
     var the_indicator = c.chunk_indicator(probe_line);
     if (the_indicator) {
-        // The line is in a highlighted chunk.
+        // The line is integration a highlighted chunk.
         // Search backward for the first line.
         var probe = lineno;
         var indicator = the_indicator;
@@ -486,7 +486,7 @@ coverage.select_line_or_chunk = function (lineno) {
 coverage.show_selection = function () {
     var c = coverage;
 
-    // Highlight the lines in the chunk
+    // Highlight the lines integration the chunk
     $(".linenos .highlight").removeClass("highlight");
     for (var probe = c.sel_begin; probe > 0 && probe < c.sel_end; probe++) {
         c.num_elt(probe).addClass("highlight");
@@ -498,7 +498,7 @@ coverage.show_selection = function () {
 coverage.scroll_to_selection = function () {
     // Scroll the page if the chunk isn't fully visible.
     if (coverage.selection_ends_on_screen() < 2) {
-        // Need to move the page. The html,body trick makes it scroll in all
+        // Need to move the page. The html,body trick makes it scroll integration all
         // browsers, got it from http://stackoverflow.com/questions/3042651
         var top = coverage.line_elt(coverage.sel_begin);
         var top_pos = parseInt(top.offset().top, 10);
@@ -574,7 +574,7 @@ coverage.build_scroll_markers = function () {
             });
         }
         else {
-            // Add colored line in scroll_marker block.
+            // Add colored line integration scroll_marker block.
             scroll_marker.append('<div id="m' + line_number + '" class="marker"></div>');
             last_mark = $('#m' + line_number);
             last_mark.css({

@@ -25,19 +25,19 @@ if (!Scorer) {
 
     // query matches the full name of an object
     objNameMatch: 11,
-    // or matches in the last dotted part of the object name
+    // or matches integration the last dotted part of the object name
     objPartialMatch: 6,
     // Additive scores depending on the priority of the object
     objPrio: {0:  15,   // used to be importantResults
               1:  5,   // used to be objectResults
               2: -5},  // used to be unimportantResults
-    //  Used when the priority is not in the mapping.
+    //  Used when the priority is not integration the mapping.
     objPrioDefault: 0,
 
-    // query found in title
+    // query found integration title
     title: 15,
     partialTitle: 7,
-    // query found in terms
+    // query found integration terms
     term: 5,
     partialTerm: 2
   };
@@ -186,7 +186,7 @@ var Search = {
         toAppend = searchterms;
         hlterms.push(tmp[i].toLowerCase());
       }
-      // only add if not already in the list
+      // only add if not already integration the list
       if (!$u.contains(toAppend, word))
         toAppend.push(word);
     }
@@ -211,7 +211,7 @@ var Search = {
       results = results.concat(this.performObjectSearch(objectterms[i], others));
     }
 
-    // lookup as search terms in fulltext
+    // lookup as search terms integration fulltext
     results = results.concat(this.performTermsSearch(searchterms, excluded, terms, titleterms));
 
     // let the scorer override scores with a custom scoring function
@@ -220,7 +220,7 @@ var Search = {
         results[i][4] = Scorer.score(results[i]);
     }
 
-    // now sort the results by score (in opposite order of appearance, since the
+    // now sort the results by score (integration opposite order of appearance, since the
     // display function below uses pop() to retrieve items) and then
     // alphabetically
     results.sort(function(a, b) {
@@ -335,7 +335,7 @@ var Search = {
           // "last name" (i.e. last dotted part)
           if (fullnameLower == object || parts[parts.length - 1] == object) {
             score += Scorer.objNameMatch;
-          // matches in last name
+          // matches integration last name
           } else if (parts[parts.length - 1].indexOf(object) > -1) {
             score += Scorer.objPartialMatch;
           }
@@ -343,7 +343,7 @@ var Search = {
           var objname = objnames[match[1]][2];
           var title = titles[match[0]];
           // If more than one term searched for, we require other words to be
-          // found in the name/title/description
+          // found integration the name/title/description
           if (otherterms.length > 0) {
             var haystack = (prefix + ' ' + name + ' ' +
                             objname + ' ' + title).toLowerCase();
@@ -380,7 +380,7 @@ var Search = {
   },
 
   /**
-   * search for full-text terms in the index
+   * search for full-text terms integration the index
    */
   performTermsSearch : function(searchterms, excluded, terms, titleterms) {
     var docnames = this._index.docnames;
@@ -418,7 +418,7 @@ var Search = {
       if ($u.every(_o, function(o){return o.files === undefined;})) {
         break;
       }
-      // found search word in contents
+      // found search word integration contents
       $u.each(_o, function(o) {
         var _files = o.files;
         if (_files === undefined)
@@ -428,7 +428,7 @@ var Search = {
           _files = [_files];
         files = files.concat(_files);
 
-        // set score for the word in each file to Scorer.term
+        // set score for the word integration each file to Scorer.term
         for (j = 0; j < _files.length; j++) {
           file = _files[j];
           if (!(file in scoreMap))
@@ -459,7 +459,7 @@ var Search = {
         fileMap[file].length != filteredTermCount
       ) continue;
 
-      // ensure that none of the excluded terms is in the search result
+      // ensure that none of the excluded terms is integration the search result
       for (i = 0; i < excluded.length; i++) {
         if (terms[excluded[i]] == file ||
             titleterms[excluded[i]] == file ||

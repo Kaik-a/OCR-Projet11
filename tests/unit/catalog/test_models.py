@@ -29,7 +29,7 @@ class TestModels(TestPattern):
         # verify Category saved on db
         assert len(Category.objects.all()) == 1
 
-        # retrieve category name in the db
+        # retrieve category name integration the db
         assert Category.objects.get(id_category=id_category).name == "Charcuteries"
 
     def test_add_product_db(self):
@@ -42,7 +42,7 @@ class TestModels(TestPattern):
         # verify Product saved on db
         assert len(Product.objects.all()) == 1
 
-        # retrieve product name in the db
+        # retrieve product name integration the db
         assert Product.objects.get(id=ID_PRODUCT).product_name_fr == "Nutella"
 
     def test_add_favorite_db(self):

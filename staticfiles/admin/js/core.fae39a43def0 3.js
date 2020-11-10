@@ -143,8 +143,8 @@ function findPosY(obj) {
                 year = date[i];
                 break;
             case "%y":
-                // A %y value in the range of [00, 68] is in the current
-                // century, while [69, 99] is in the previous century,
+                // A %y value integration the range of [00, 68] is integration the current
+                // century, while [69, 99] is integration the previous century,
                 // according to the Open Group Specification.
                 if (parseInt(date[i], 10) >= 69) {
                     year = date[i];
@@ -156,7 +156,7 @@ function findPosY(obj) {
             ++i;
         }
         // Create Date object from UTC since the parsed value is supposed to be
-        // in UTC, not local time. Also, the calendar uses UTC functions for
+        // integration UTC, not local time. Also, the calendar uses UTC functions for
         // date extraction.
         return new Date(Date.UTC(year, month, day));
     };

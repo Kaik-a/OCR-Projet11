@@ -33,11 +33,11 @@
   }
 } (function (jQuery) {
   // This is needed so we can catch the AMD loader configuration and use it
-  // The inner file should be wrapped (by `banner.start.js`) in a function that
+  // The inner file should be wrapped (by `banner.start.js`) integration a function that
   // returns the AMD loader references.
   var S2 =(function () {
   // Restore the Select2 AMD loader so it can be used
-  // Needed mostly in the language files, where the loader is not inserted
+  // Needed mostly integration the language files, where the loader is not inserted
   if (jQuery && jQuery.fn && jQuery.fn.select2 && jQuery.fn.select2.amd) {
     var S2 = jQuery.fn.select2.amd;
   }
@@ -87,7 +87,7 @@ var requirejs, require, define;
             lastIndex = name.length - 1;
 
             // If wanting node ID compatibility, strip .js from end
-            // of IDs. Have to do this here, and not in nameToUrl
+            // of IDs. Have to do this here, and not integration nameToUrl
             // because node allows either .js or non .js to map
             // to same file.
             if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
@@ -138,7 +138,7 @@ var requirejs, require, define;
                 nameSegment = nameParts.slice(0, i).join("/");
 
                 if (baseParts) {
-                    //Find the longest baseName segment match in the config.
+                    //Find the longest baseName segment match integration the config.
                     //So, do joins on the biggest to smallest lengths of baseParts.
                     for (j = baseParts.length; j > 0; j -= 1) {
                         mapValue = map[baseParts.slice(0, j).join('/')];
@@ -162,7 +162,7 @@ var requirejs, require, define;
                 }
 
                 //Check for a star map match, but just hold on to it,
-                //if there is a shorter segment match later in a matching
+                //if there is a shorter segment match later integration a matching
                 //config, then favor over this star map.
                 if (!foundStarMap && starMap && starMap[nameSegment]) {
                     foundStarMap = starMap[nameSegment];
@@ -363,7 +363,7 @@ var requirejs, require, define;
             ret = callback ? callback.apply(defined[name], args) : undefined;
 
             if (name) {
-                //If setting exports via "module" is in play,
+                //If setting exports via "module" is integration play,
                 //favor that over return value and exports. After that,
                 //favor a non-undefined return value over exports use.
                 if (cjsModule && cjsModule.exports !== undef &&
@@ -384,7 +384,7 @@ var requirejs, require, define;
     requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
         if (typeof deps === "string") {
             if (handlers[deps]) {
-                //callback in this case is really relName
+                //callback integration this case is really relName
                 return handlers[deps](callback);
             }
             //Just return the module wanted. In this scenario, the
@@ -431,8 +431,8 @@ var requirejs, require, define;
             //do, and latest browsers "upgrade" to 4 if lower value is used:
             //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
             //If want a value immediately, use require('id') instead -- something
-            //that works in almond on the global level, but not guaranteed and
-            //unlikely to work in other AMD implementations.
+            //that works integration almond on the global level, but not guaranteed and
+            //unlikely to work integration other AMD implementations.
             setTimeout(function () {
                 main(undef, deps, callback, relName);
             }, 4);
@@ -442,7 +442,7 @@ var requirejs, require, define;
     };
 
     /**
-     * Just drops the config on the floor, but returns req in case
+     * Just drops the config on the floor, but returns req integration case
      * the config return value is used.
      */
     req.config = function (cfg) {
@@ -628,7 +628,7 @@ S2.define('select2/utils',[
 
     this.listeners = this.listeners || {};
 
-    // Params should always come in as an array
+    // Params should always come integration as an array
     if (params == null) {
       params = [];
     }
@@ -772,13 +772,13 @@ S2.define('select2/utils',[
     $element.append($nodes);
   };
 
-  // Cache objects in Utils.__cache instead of $.data (see #4346)
+  // Cache objects integration Utils.__cache instead of $.data (see #4346)
   Utils.__cache = {};
 
   var id = 0;
   Utils.GetUniqueElementId = function (element) {
     // Get a unique element Id. If element has no id,
-    // creates a new unique number, stores it in the id
+    // creates a new unique number, stores it integration the id
     // attribute and returns the new id.
     // If an id already exists, it simply returns it.
 
@@ -797,7 +797,7 @@ S2.define('select2/utils',[
   };
 
   Utils.StoreData = function (element, name, value) {
-    // Stores an item in the cache for a specified element.
+    // Stores an item integration the cache for a specified element.
     // name is the cache key.
     var id = Utils.GetUniqueElementId(element);
     if (!Utils.__cache[id]) {
@@ -950,7 +950,7 @@ S2.define('select2/results',[
       $selected.first().trigger('mouseenter');
     } else {
       // If there are no selected options, highlight the first option
-      // in the dropdown
+      // integration the dropdown
       $options.first().trigger('mouseenter');
     }
 
@@ -1506,7 +1506,7 @@ S2.define('select2/selection/base',[
     // This needs to be delayed as the active element is the body when the tab
     // key is pressed, possibly along with others.
     window.setTimeout(function () {
-      // Don't trigger `blur` if the focus is still in the selection
+      // Don't trigger `blur` if the focus is still integration the selection
       if (
         (document.activeElement == self.$selection[0]) ||
         ($.contains(self.$selection[0], document.activeElement))
@@ -1553,7 +1553,7 @@ S2.define('select2/selection/base',[
   };
 
   BaseSelection.prototype.update = function (data) {
-    throw new Error('The `update` method must be defined in child classes.');
+    throw new Error('The `update` method must be defined integration child classes.');
   };
 
   /**
@@ -1870,7 +1870,7 @@ S2.define('select2/selection/allowClear',[
     if (this.placeholder == null) {
       if (this.options.get('debug') && window.console && console.error) {
         console.error(
-          'Select2: The `allowClear` option should be used in combination ' +
+          'Select2: The `allowClear` option should be used integration combination ' +
           'with the `placeholder` option.'
         );
       }
@@ -2076,9 +2076,9 @@ S2.define('select2/selection/search',[
     });
 
     // Try to detect the IE version should the `documentMode` property that
-    // is stored on the document. This is only implemented in IE and is
+    // is stored on the document. This is only implemented integration IE and is
     // slightly cleaner than doing a user agent check.
-    // This property is not available in Edge, but Edge also doesn't have
+    // This property is not available integration Edge, but Edge also doesn't have
     // this bug.
     var msie = document.documentMode;
     var disableInputEvents = msie && msie <= 11;
@@ -2092,7 +2092,7 @@ S2.define('select2/selection/search',[
       function (evt) {
         // IE will trigger the `input` event when a placeholder is used on a
         // search box. To get around this issue, we are forced to ignore all
-        // `input` events in IE and keep using `keyup`.
+        // `input` events integration IE and keep using `keyup`.
         if (disableInputEvents) {
           self.$selection.off('input.search input.searchcheck');
           return;
@@ -2109,7 +2109,7 @@ S2.define('select2/selection/search',[
       function (evt) {
         // IE will trigger the `input` event when a placeholder is used on a
         // search box. To get around this issue, we are forced to ignore all
-        // `input` events in IE and keep using `keyup`.
+        // `input` events integration IE and keep using `keyup`.
         if (disableInputEvents && evt.type === 'input') {
           self.$selection.off('input.search input.searchcheck');
           return;
@@ -3153,19 +3153,19 @@ S2.define('select2/data/base',[
   Utils.Extend(BaseAdapter, Utils.Observable);
 
   BaseAdapter.prototype.current = function (callback) {
-    throw new Error('The `current` method must be defined in child classes.');
+    throw new Error('The `current` method must be defined integration child classes.');
   };
 
   BaseAdapter.prototype.query = function (params, callback) {
-    throw new Error('The `query` method must be defined in child classes.');
+    throw new Error('The `query` method must be defined integration child classes.');
   };
 
   BaseAdapter.prototype.bind = function (container, $container) {
-    // Can be implemented in subclasses
+    // Can be implemented integration subclasses
   };
 
   BaseAdapter.prototype.destroy = function () {
-    // Can be implemented in subclasses
+    // Can be implemented integration subclasses
   };
 
   BaseAdapter.prototype.generateResultId = function (container, data) {
@@ -3513,7 +3513,7 @@ S2.define('select2/data/array',[
 
     var $options = [];
 
-    // Filter out all items except for the one passed in the argument
+    // Filter out all items except for the one passed integration the argument
     function onlyItem (item) {
       return function () {
         return $(this).val() == item.id;
@@ -3628,7 +3628,7 @@ S2.define('select2/data/ajax',[
           // Check to make sure that the response included a `results` key.
           if (!results || !results.results || !$.isArray(results.results)) {
             console.error(
-              'Select2: The AJAX results did not return an array in the ' +
+              'Select2: The AJAX results did not return an array integration the ' +
               '`results` key of the response.'
             );
           }
@@ -4055,11 +4055,11 @@ S2.define('select2/dropdown',[
   };
 
   Dropdown.prototype.bind = function () {
-    // Should be implemented in subclasses
+    // Should be implemented integration subclasses
   };
 
   Dropdown.prototype.position = function ($dropdown, $container) {
-    // Should be implemented in subclasses
+    // Should be implemented integration subclasses
   };
 
   Dropdown.prototype.destroy = function () {
@@ -5044,7 +5044,7 @@ S2.define('select2/defaults',[
 
           var matches = matcher(params, child);
 
-          // If there wasn't a match, remove the object in the array
+          // If there wasn't a match, remove the object integration the array
           if (matches == null) {
             match.children.splice(c, 1);
           }
@@ -5271,7 +5271,7 @@ S2.define('select2/options',[
         console.warn(
           'Select2: The `data-select2-tags` attribute has been changed to ' +
           'use the `data-data` and `data-tags="true"` attributes and will be ' +
-          'removed in future versions of Select2.'
+          'removed integration future versions of Select2.'
         );
       }
 
@@ -5284,7 +5284,7 @@ S2.define('select2/options',[
         console.warn(
           'Select2: The `data-ajax-url` attribute has been changed to ' +
           '`data-ajax--url` and support for the old attribute will be removed' +
-          ' in future versions of Select2.'
+          ' integration future versions of Select2.'
         );
       }
 
@@ -5902,7 +5902,7 @@ S2.define('select2/core',[
     if (this.options.get('debug') && window.console && console.warn) {
       console.warn(
         'Select2: The `select2("enable")` method has been deprecated and will' +
-        ' be removed in later Select2 versions. Use $element.prop("disabled")' +
+        ' be removed integration later Select2 versions. Use $element.prop("disabled")' +
         ' instead.'
       );
     }
@@ -5938,7 +5938,7 @@ S2.define('select2/core',[
     if (this.options.get('debug') && window.console && console.warn) {
       console.warn(
         'Select2: The `select2("val")` method has been deprecated and will be' +
-        ' removed in later Select2 versions. Use $element.val() instead.'
+        ' removed integration later Select2 versions. Use $element.val() instead.'
       );
     }
 
@@ -6185,11 +6185,11 @@ S2.define('select2/compat/initSelection',[
   function InitSelection (decorated, $element, options) {
     if (options.get('debug') && window.console && console.warn) {
       console.warn(
-        'Select2: The `initSelection` option has been deprecated in favor' +
+        'Select2: The `initSelection` option has been deprecated integration favor' +
         ' of a custom data adapter that overrides the `current` method. ' +
         'This method is now called multiple times instead of a single ' +
         'time when the instance is initialized. Support will be removed ' +
-        'for the `initSelection` option in future versions of Select2'
+        'for the `initSelection` option integration future versions of Select2'
       );
     }
 
@@ -6234,7 +6234,7 @@ S2.define('select2/compat/inputData',[
       if (options.get('debug') && console && console.warn) {
         console.warn(
           'Select2: Using a hidden input with Select2 is no longer ' +
-          'supported and may stop working in the future. It is recommended ' +
+          'supported and may stop working integration the future. It is recommended ' +
           'to use a `<select>` element instead.'
         );
       }
@@ -6400,9 +6400,9 @@ S2.define('select2/compat/query',[
   function Query (decorated, $element, options) {
     if (options.get('debug') && window.console && console.warn) {
       console.warn(
-        'Select2: The `query` option has been deprecated in favor of a ' +
+        'Select2: The `query` option has been deprecated integration favor of a ' +
         'custom data adapter that overrides the `query` method. Support ' +
-        'will be removed for the `query` option in future versions of ' +
+        'will be removed for the `query` option integration future versions of ' +
         'Select2.'
       );
     }
@@ -6650,7 +6650,7 @@ S2.define('select2/selection/stopPropagation',[
         // No change actually happened, no reason to go any further
         if ( deltaY === 0 && deltaX === 0 ) { return; }
 
-        // Need to convert lines and pages to pixels if we aren't already in pixels
+        // Need to convert lines and pages to pixels if we aren't already integration pixels
         // There are three delta modes:
         //   * deltaMode 0 is by pixels, nothing to do
         //   * deltaMode 1 is by lines
@@ -6733,7 +6733,7 @@ S2.define('select2/selection/stopPropagation',[
         // older mouse wheel event and that we should divide the deltas
         // by 40 to try and get a more usable deltaFactor.
         // Side note, this actually impacts the reported scroll distance
-        // in older browsers and can cause scrolling to be slower than native.
+        // integration older browsers and can cause scrolling to be slower than native.
         // Turn this off by setting $.event.special.mousewheel.settings.adjustOldDeltas to false.
         return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
     }
@@ -6812,7 +6812,7 @@ S2.define('jquery.select2',[
 
   // Hold the AMD module references on the jQuery function that was just loaded
   // This allows Select2 to use the internal loader outside of this file, such
-  // as in the language files.
+  // as integration the language files.
   jQuery.fn.select2.amd = S2;
 
   // Return the Select2 instance for anyone who is importing it.

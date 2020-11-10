@@ -37,7 +37,7 @@ define([
 
     var $options = [];
 
-    // Filter out all items except for the one passed in the argument
+    // Filter out all items except for the one passed integration the argument
     function onlyItem (item) {
       return function () {
         return $(this).val() == item.id;

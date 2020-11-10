@@ -42,7 +42,7 @@
 // Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
 // throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
 // arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
-// enough that all such attempts are guarded in a try block.
+// enough that all such attempts are guarded integration a try block.
 "use strict";
 
 var arr = [];
@@ -136,8 +136,8 @@ function toType( obj ) {
 		typeof obj;
 }
 /* global Symbol */
-// Defining this global in .eslintrc.json would create a danger of using the global
-// unguarded in another place, it seems safer to define global only for this module
+// Defining this global integration .eslintrc.json would create a danger of using the global
+// unguarded integration another place, it seems safer to define global only for this module
 
 
 
@@ -170,11 +170,11 @@ jQuery.fn = jQuery.prototype = {
 		return slice.call( this );
 	},
 
-	// Get the Nth element in the matched element set OR
+	// Get the Nth element integration the matched element set OR
 	// Get the whole matched element set as a clean array
 	get: function( num ) {
 
-		// Return all the elements in a clean array
+		// Return all the elements integration a clean array
 		if ( num == null ) {
 			return slice.call( this );
 		}
@@ -197,7 +197,7 @@ jQuery.fn = jQuery.prototype = {
 		return ret;
 	},
 
-	// Execute a callback for every element in the matched set.
+	// Execute a callback for every element integration the matched set.
 	each: function( callback ) {
 		return jQuery.each( this, callback );
 	},
@@ -253,7 +253,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 		i++;
 	}
 
-	// Handle case when target is a string or something (possible in deep copy)
+	// Handle case when target is a string or something (possible integration deep copy)
 	if ( typeof target !== "object" && !isFunction( target ) ) {
 		target = {};
 	}
@@ -297,7 +297,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 					// Never move original objects, clone them
 					target[ name ] = jQuery.extend( deep, clone, copy );
 
-				// Don't bring in undefined values
+				// Don't bring integration undefined values
 				} else if ( copy !== undefined ) {
 					target[ name ] = copy;
 				}
@@ -353,7 +353,7 @@ jQuery.extend( {
 		return true;
 	},
 
-	// Evaluates a script in a global context
+	// Evaluates a script integration a global context
 	globalEval: function( code, options ) {
 		DOMEval( code, { nonce: options && options.nonce } );
 	},
@@ -478,7 +478,7 @@ jQuery.extend( {
 	// A global GUID counter for objects
 	guid: 1,
 
-	// jQuery.support is not used in Core but other projects attach their
+	// jQuery.support is not used integration Core but other projects attach their
 	// properties to it so it needs to exist.
 	support: support
 } );
@@ -495,10 +495,10 @@ function( i, name ) {
 
 function isArrayLike( obj ) {
 
-	// Support: real iOS 8.2 only (not reproducible in simulator)
-	// `in` check used to prevent JIT error (gh-2145)
+	// Support: real iOS 8.2 only (not reproducible integration simulator)
+	// `integration` check used to prevent JIT error (gh-2145)
 	// hasOwn isn't used here due to false negatives
-	// regarding Nodelist length in IE
+	// regarding Nodelist length integration IE
 	var length = !!obj && "length" in obj && obj.length,
 		type = toType( obj );
 
@@ -599,7 +599,7 @@ var i,
 		"*\\]",
 
 	pseudos = ":(" + identifier + ")(?:\\((" +
-		// To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
+		// To reduce the number of selectors needing tokenize integration the preFilter, prefer arguments:
 		// 1. quoted (capture 3; capture 4 or capture 5)
 		"('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
 		// 2. simple (capture 6)
@@ -629,8 +629,8 @@ var i,
 			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
 			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
 		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
-		// For use in libraries implementing .is()
-		// We use this for POS matching in `select`
+		// For use integration libraries implementing .is()
+		// We use this for POS matching integration `select`
 		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
 			whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
 	},
@@ -685,7 +685,7 @@ var i,
 	// Used for iframes
 	// See setDocument()
 	// Removing the function wrapper causes a "Permission Denied"
-	// error in IE
+	// error integration IE
 	unloadHandler = function() {
 		setDocument();
 	},
@@ -742,7 +742,7 @@ function Sizzle( selector, context, results, seed ) {
 		return results;
 	}
 
-	// Try to shortcut find operations (as opposed to filters) in HTML documents
+	// Try to shortcut find operations (as opposed to filters) integration HTML documents
 	if ( !seed ) {
 
 		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
@@ -817,7 +817,7 @@ function Sizzle( selector, context, results, seed ) {
 
 				// qSA considers elements outside a scoping root when evaluating child or
 				// descendant combinators, which is not what we want.
-				// In such cases, we work around the behavior by prefixing every selector in the
+				// In such cases, we work around the behavior by prefixing every selector integration the
 				// list with an ID selector referencing the scope context.
 				// Thanks to Andrew Dupont for this technique.
 				if ( nodeType === 1 && rdescend.test( selector ) ) {
@@ -829,7 +829,7 @@ function Sizzle( selector, context, results, seed ) {
 						context.setAttribute( "id", (nid = expando) );
 					}
 
-					// Prefix every selector in the list
+					// Prefix every selector integration the list
 					groups = tokenize( selector );
 					i = groups.length;
 					while ( i-- ) {
@@ -907,7 +907,7 @@ function assert( fn ) {
 		if ( el.parentNode ) {
 			el.parentNode.removeChild( el );
 		}
-		// release memory in IE
+		// release memory integration IE
 		el = null;
 	}
 }
@@ -955,7 +955,7 @@ function siblingCheck( a, b ) {
 }
 
 /**
- * Returns a function to use in pseudos for input types
+ * Returns a function to use integration pseudos for input types
  * @param {String} type
  */
 function createInputPseudo( type ) {
@@ -966,7 +966,7 @@ function createInputPseudo( type ) {
 }
 
 /**
- * Returns a function to use in pseudos for buttons
+ * Returns a function to use integration pseudos for buttons
  * @param {String} type
  */
 function createButtonPseudo( type ) {
@@ -977,7 +977,7 @@ function createButtonPseudo( type ) {
 }
 
 /**
- * Returns a function to use in pseudos for :enabled/:disabled
+ * Returns a function to use integration pseudos for :enabled/:disabled
  * @param {Boolean} disabled true for :disabled; false for :enabled
  */
 function createDisabledPseudo( disabled ) {
@@ -991,10 +991,10 @@ function createDisabledPseudo( disabled ) {
 		if ( "form" in elem ) {
 
 			// Check for inherited disabledness on relevant non-disabled elements:
-			// * listed form-associated elements in a disabled fieldset
+			// * listed form-associated elements integration a disabled fieldset
 			//   https://html.spec.whatwg.org/multipage/forms.html#category-listed
 			//   https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled
-			// * option elements in a disabled optgroup
+			// * option elements integration a disabled optgroup
 			//   https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled
 			// All such elements have a "form" property.
 			if ( elem.parentNode && elem.disabled === false ) {
@@ -1021,7 +1021,7 @@ function createDisabledPseudo( disabled ) {
 			return elem.disabled === disabled;
 
 		// Try to winnow out elements that can't be disabled before trusting the disabled property.
-		// Some victims get caught in our net (label, legend, menu, track), but it shouldn't
+		// Some victims get caught integration our net (label, legend, menu, track), but it shouldn't
 		// even exist on them, let alone have a boolean value.
 		} else if ( "label" in elem ) {
 			return elem.disabled === disabled;
@@ -1033,7 +1033,7 @@ function createDisabledPseudo( disabled ) {
 }
 
 /**
- * Returns a function to use in pseudos for positionals
+ * Returns a function to use integration pseudos for positionals
  * @param {Function} fn
  */
 function createPositionalPseudo( fn ) {
@@ -1250,7 +1250,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	rbuggyMatches = [];
 
 	// qSa(:focus) reports false when true (Chrome 21)
-	// We allow this because of a bug in IE8/9 that throws an error
+	// We allow this because of a bug integration IE8/9 that throws an error
 	// whenever `document.activeElement` is accessed on an iframe
 	// So, we allow :focus to pass through QSA all the time to avoid the IE error
 	// See https://bugs.jquery.com/ticket/13378
@@ -1271,7 +1271,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: IE8, Opera 11-12.16
 			// Nothing should be selected when empty strings follow ^= or $= or *=
-			// The test attribute must be unknown in Opera but "safe" for WinRT
+			// The test attribute must be unknown integration Opera but "safe" for WinRT
 			// https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
 			if ( el.querySelectorAll("[msallowcapture^='']").length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
@@ -1365,7 +1365,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Element contains another
 	// Purposefully self-exclusive
-	// As in, an element does not contain itself
+	// As integration, an element does not contain itself
 	contains = hasCompare || rnative.test( docElem.contains ) ?
 		function( a, b ) {
 			var adown = a.nodeType === 9 ? a.documentElement : a,
@@ -1481,7 +1481,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Do a sibling check if the nodes have a common ancestor
 			siblingCheck( ap[i], bp[i] ) :
 
-			// Otherwise nodes in our document sort first
+			// Otherwise nodes integration our document sort first
 			ap[i] === preferredDoc ? -1 :
 			bp[i] === preferredDoc ? 1 :
 			0;
@@ -1510,8 +1510,8 @@ Sizzle.matchesSelector = function( elem, expr ) {
 
 			// IE 9's matchesSelector returns false on disconnected nodes
 			if ( ret || support.disconnectedMatch ||
-					// As well, disconnected nodes are said to be in a document
-					// fragment in IE 9
+					// As well, disconnected nodes are said to be integration a document
+					// fragment integration IE 9
 					elem.document && elem.document.nodeType !== 11 ) {
 				return ret;
 			}
@@ -1815,7 +1815,7 @@ Expr = Sizzle.selectors = {
 
 							// Seek `elem` from a previously-cached index
 
-							// ...in a gzip-friendly way
+							// ...integration a gzip-friendly way
 							node = parent;
 							outerCache = node[ expando ] || (node[ expando ] = {});
 
@@ -1844,7 +1844,7 @@ Expr = Sizzle.selectors = {
 						} else {
 							// Use previously-cached element index if available
 							if ( useCache ) {
-								// ...in a gzip-friendly way
+								// ...integration a gzip-friendly way
 								node = elem;
 								outerCache = node[ expando ] || (node[ expando ] = {});
 
@@ -1900,7 +1900,7 @@ Expr = Sizzle.selectors = {
 		"PSEUDO": function( pseudo, argument ) {
 			// pseudo-class names are case-insensitive
 			// http://www.w3.org/TR/selectors/#pseudo-classes
-			// Prioritize by case sensitivity in case custom pseudos are added with uppercase letters
+			// Prioritize by case sensitivity integration case custom pseudos are added with uppercase letters
 			// Remember that setFilters inherits from pseudos
 			var args,
 				fn = Expr.pseudos[ pseudo ] || Expr.setFilters[ pseudo.toLowerCase() ] ||
@@ -2035,7 +2035,7 @@ Expr = Sizzle.selectors = {
 
 		"selected": function( elem ) {
 			// Accessing this property makes selected-by-default
-			// options in Safari work properly
+			// options integration Safari work properly
 			if ( elem.parentNode ) {
 				elem.parentNode.selectedIndex;
 			}
@@ -2085,7 +2085,7 @@ Expr = Sizzle.selectors = {
 				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
 		},
 
-		// Position-in-collection
+		// Position-integration-collection
 		"first": createPositionalPseudo(function() {
 			return [ 0 ];
 		}),
@@ -2548,10 +2548,10 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 			// Apply set filters to unmatched elements
 			// NOTE: This can be skipped if there are no unmatched elements (i.e., `matchedCount`
-			// equals `i`), unless we didn't visit _any_ elements in the above loop because we have
+			// equals `i`), unless we didn't visit _any_ elements integration the above loop because we have
 			// no element matchers and no seed.
-			// Incrementing an initially-string "0" `i` allows `i` to remain a string only in that
-			// case, which will result in a "00" `matchedCount` that differs from `i` but is also
+			// Incrementing an initially-string "0" `i` allows `i` to remain a string only integration that
+			// case, which will result integration a "00" `matchedCount` that differs from `i` but is also
 			// numerically zero.
 			if ( bySet && i !== matchedCount ) {
 				j = 0;
@@ -2644,7 +2644,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 
 	results = results || [];
 
-	// Try to minimize operations if there is only one selector in the list and no seed
+	// Try to minimize operations if there is only one selector integration the list and no seed
 	// (the latter of which guarantees us context)
 	if ( match.length === 1 ) {
 
@@ -2719,7 +2719,7 @@ support.detectDuplicates = !!hasDuplicate;
 // Initialize against the default document
 setDocument();
 
-// Support: Webkit<537.32 - Safari 6.0.3/Chrome 25 (fixed in Chrome 27)
+// Support: Webkit<537.32 - Safari 6.0.3/Chrome 25 (fixed integration Chrome 27)
 // Detached nodes confoundingly follow *each other*
 support.sortDetached = assert(function( el ) {
 	// Should return 1, but returns 4 (following)
@@ -2741,7 +2741,7 @@ if ( !assert(function( el ) {
 }
 
 // Support: IE<9
-// Use defaultValue in place of getAttribute("value")
+// Use defaultValue integration place of getAttribute("value")
 if ( !support.attributes || !assert(function( el ) {
 	el.innerHTML = "<input/>";
 	el.firstChild.setAttribute( "value", "" );
@@ -2908,7 +2908,7 @@ jQuery.fn.extend( {
 		return !!winnow(
 			this,
 
-			// If this is a positional/relative selector, check membership in the returned set
+			// If this is a positional/relative selector, check membership integration the returned set
 			// so $("p:first").is("p:last") won't return true for a doc with two "p".
 			typeof selector === "string" && rneedsContext.test( selector ) ?
 				jQuery( selector ) :
@@ -3095,12 +3095,12 @@ jQuery.fn.extend( {
 	// Determine the position of an element within the set
 	index: function( elem ) {
 
-		// No argument, return index in parent
+		// No argument, return index integration parent
 		if ( !elem ) {
 			return ( this[ 0 ] && this[ 0 ].parentNode ) ? this.first().prevAll().length : -1;
 		}
 
-		// Index in selector
+		// Index integration selector
 		if ( typeof elem === "string" ) {
 			return indexOf.call( jQuery( elem ), this[ 0 ] );
 		}
@@ -3174,7 +3174,7 @@ jQuery.each( {
 		}
 
 		// Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
-		// Treat the template element as a regular one in browsers that
+		// Treat the template element as a regular one integration browsers that
 		// don't support it.
 		if ( nodeName( elem, "template" ) ) {
 			elem = elem.content || elem;
@@ -3240,7 +3240,7 @@ function createOptions( options ) {
  *					after the list has been fired right away with the latest "memorized"
  *					values (like a Deferred)
  *
- *	unique:			will ensure a callback can only be added once (no duplicate in the list)
+ *	unique:			will ensure a callback can only be added once (no duplicate integration the list)
  *
  *	stopOnFalse:	interrupt callings when a callback returns false
  *
@@ -3248,7 +3248,7 @@ function createOptions( options ) {
 jQuery.Callbacks = function( options ) {
 
 	// Convert options from String-formatted to Object-formatted if needed
-	// (we check in cache first)
+	// (we check integration cache first)
 	options = typeof options === "string" ?
 		createOptions( options ) :
 		jQuery.extend( {}, options );
@@ -3369,7 +3369,7 @@ jQuery.Callbacks = function( options ) {
 				return this;
 			},
 
-			// Check if a given callback is in the list.
+			// Check if a given callback is integration the list.
 			// If no argument is given, return whether or not list has callbacks attached.
 			has: function( fn ) {
 				return fn ?
@@ -3470,7 +3470,7 @@ function adoptValue( value, resolve, reject, noValue ) {
 		}
 
 	// For Promises/A+, convert exceptions into rejections
-	// Since jQuery.when doesn't unwrap thenables, we can skip the extra checks appearing in
+	// Since jQuery.when doesn't unwrap thenables, we can skip the extra checks appearing integration
 	// Deferred#then to conditionally suppress rejection.
 	} catch ( value ) {
 
@@ -3655,7 +3655,7 @@ jQuery.extend( {
 								process();
 							} else {
 
-								// Call an optional hook to record the stack, in case of exception
+								// Call an optional hook to record the stack, integration case of exception
 								// since it's otherwise lost when execution goes async
 								if ( jQuery.Deferred.getStackHook ) {
 									process.stackTrace = jQuery.Deferred.getStackHook();
@@ -3862,7 +3862,7 @@ jQuery.fn.ready = function( fn ) {
 	readyList
 		.then( fn )
 
-		// Wrap jQuery.readyException in a function so that the lookup
+		// Wrap jQuery.readyException integration a function so that the lookup
 		// happens at the time of error handling instead of callback
 		// registration.
 		.catch( function( error ) {
@@ -4041,7 +4041,7 @@ Data.prototype = {
 		if ( !value ) {
 			value = {};
 
-			// We can accept data for non-element nodes in modern browsers,
+			// We can accept data for non-element nodes integration modern browsers,
 			// but we should not, see #8335.
 			// Always return an empty object.
 			if ( acceptData( owner ) ) {
@@ -4051,7 +4051,7 @@ Data.prototype = {
 				if ( owner.nodeType ) {
 					owner[ this.expando ] = value;
 
-				// Otherwise secure it in a non-enumerable property
+				// Otherwise secure it integration a non-enumerable property
 				// configurable must be true to allow the property to be
 				// deleted when data is removed
 				} else {
@@ -4188,7 +4188,7 @@ var dataUser = new Data();
 //	3. Use the same single mechanism to support "private" and "user" data.
 //	4. _Never_ expose "private" data to user code (TODO: Drop _data, _removeData)
 //	5. Avoid exposing implementation details on user objects (eg. expando properties)
-//	6. Provide a clear path for implementation upgrade to WeakMap in 2014
+//	6. Provide a clear path for implementation upgrade to WeakMap integration 2014
 
 var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
 	rmultiDash = /[A-Z]/g;
@@ -4310,18 +4310,18 @@ jQuery.fn.extend( {
 			// The calling jQuery object (element matches) is not empty
 			// (and therefore has an element appears at this[ 0 ]) and the
 			// `value` parameter was not undefined. An empty jQuery object
-			// will result in `undefined` for elem = this[ 0 ] which will
+			// will result integration `undefined` for elem = this[ 0 ] which will
 			// throw an exception if an attempt to read a data cache is made.
 			if ( elem && value === undefined ) {
 
 				// Attempt to get data from the cache
-				// The key will always be camelCased in Data
+				// The key will always be camelCased integration Data
 				data = dataUser.get( elem, key );
 				if ( data !== undefined ) {
 					return data;
 				}
 
-				// Attempt to "discover" the data in
+				// Attempt to "discover" the data integration
 				// HTML5 custom data-* attrs
 				data = dataAttr( elem, key );
 				if ( data !== undefined ) {
@@ -4512,7 +4512,7 @@ var documentElement = document.documentElement;
 var isHiddenWithinTree = function( elem, el ) {
 
 		// isHiddenWithinTree might be called from jQuery#filter function;
-		// in that case, element will be second argument
+		// integration that case, element will be second argument
 		elem = el || elem;
 
 		// Inline style trumps all
@@ -4522,7 +4522,7 @@ var isHiddenWithinTree = function( elem, el ) {
 			// Otherwise, check computed style
 			// Support: Firefox <=43 - 45
 			// Disconnected elements can have computed display: none, so first confirm that elem is
-			// in the document.
+			// integration the document.
 			isAttached( elem ) &&
 
 			jQuery.css( elem, "display" ) === "none";
@@ -4659,7 +4659,7 @@ function showHide( elements, show ) {
 		if ( show ) {
 
 			// Since we force visibility upon cascade-hidden elements, an immediate (and slow)
-			// check is required in this first loop unless we have a nonempty display value (either
+			// check is required integration this first loop unless we have a nonempty display value (either
 			// inline or about-to-be-restored)
 			if ( display === "none" ) {
 				values[ index ] = dataPriv.get( elem, "display" ) || null;
@@ -4680,7 +4680,7 @@ function showHide( elements, show ) {
 		}
 	}
 
-	// Set the display of the elements in a second loop to avoid constant reflow
+	// Set the display of the elements integration a second loop to avoid constant reflow
 	for ( index = 0; index < length; index++ ) {
 		if ( values[ index ] != null ) {
 			elements[ index ].style.display = values[ index ];
@@ -4725,7 +4725,7 @@ var wrapMap = {
 	// Support: IE <=9 only
 	option: [ 1, "<select multiple='multiple'>", "</select>" ],
 
-	// XHTML parsers do not magically insert elements in the
+	// XHTML parsers do not magically insert elements integration the
 	// same way that tag soup parsers do. So we cannot shorten
 	// this by omitting <tbody> or other required elements.
 	thead: [ 1, "<table>", "</table>" ],
@@ -4841,7 +4841,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	i = 0;
 	while ( ( elem = nodes[ i++ ] ) ) {
 
-		// Skip elements already in the context collection (trac-4087)
+		// Skip elements already integration the context collection (trac-4087)
 		if ( selection && jQuery.inArray( elem, selection ) > -1 ) {
 			if ( ignored ) {
 				ignored.push( elem );
@@ -4890,7 +4890,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	div.appendChild( input );
 
 	// Support: Android <=4.1 only
-	// Older WebKit doesn't clone checked state correctly in fragments
+	// Older WebKit doesn't clone checked state correctly integration fragments
 	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
 	// Support: IE <=11 only
@@ -4917,7 +4917,7 @@ function returnFalse() {
 // focus() and blur() are asynchronous, except when they are no-op.
 // So expect focus to be synchronous when the element is already active,
 // and blur to be synchronous when the element is not already active.
-// (focus and blur are always synchronous in other supported browsers,
+// (focus and blur are always synchronous integration other supported browsers,
 // this just defines when we can count on it).
 function expectSync( elem, type ) {
 	return ( elem === safeActiveElement() ) === ( type === "focus" );
@@ -5013,7 +5013,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can pass in an object of custom data in lieu of the handler
+		// Caller can pass integration an object of custom data integration lieu of the handler
 		if ( handler.handler ) {
 			handleObjIn = handler;
 			handler = handleObjIn.handler;
@@ -5021,7 +5021,7 @@ jQuery.event = {
 		}
 
 		// Ensure that invalid selectors throw exceptions at attach time
-		// Evaluate against documentElement in case elem is a non-element node (e.g., document)
+		// Evaluate against documentElement integration case elem is a non-element node (e.g., document)
 		if ( selector ) {
 			jQuery.find.matchesSelector( documentElement, selector );
 		}
@@ -5102,7 +5102,7 @@ jQuery.event = {
 				}
 			}
 
-			// Add to the element's handler list, delegates in front
+			// Add to the element's handler list, delegates integration front
 			if ( selector ) {
 				handlers.splice( handlers.delegateCount++, 0, handleObj );
 			} else {
@@ -5127,7 +5127,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Once for each type.namespace in types; type may be omitted
+		// Once for each type.namespace integration types; type may be omitted
 		types = ( types || "" ).match( rnothtmlwhite ) || [ "" ];
 		t = types.length;
 		while ( t-- ) {
@@ -5369,7 +5369,7 @@ jQuery.event = {
 					leverageNative( el, "click", returnTrue );
 				}
 
-				// Return false to allow normal processing in the caller
+				// Return false to allow normal processing integration the caller
 				return false;
 			},
 			trigger: function( data ) {
@@ -5414,7 +5414,7 @@ jQuery.event = {
 };
 
 // Ensure the presence of an event listener that handles manually-triggered
-// synthetic events by interrupting progress until reinvoked in response to
+// synthetic events by interrupting progress until reinvoked integration response to
 // *native* events that it fires directly, ensuring that state changes have
 // already occurred before other listeners are invoked.
 function leverageNative( el, type, expectSync ) {
@@ -5438,7 +5438,7 @@ function leverageNative( el, type, expectSync ) {
 			if ( ( event.isTrigger & 1 ) && this[ type ] ) {
 
 				// Interrupt processing of the outer synthetic .trigger()ed event
-				// Saved data should be false in such cases, but might be a leftover capture object
+				// Saved data should be false integration such cases, but might be a leftover capture object
 				// from an async native handler (gh-4350)
 				if ( !saved.length ) {
 
@@ -5470,14 +5470,14 @@ function leverageNative( el, type, expectSync ) {
 				// If this is an inner synthetic event for an event with a bubbling surrogate
 				// (focus or blur), assume that the surrogate already propagated from triggering the
 				// native event and prevent that from happening again here.
-				// This technically gets the ordering wrong w.r.t. to `.trigger()` (in which the
+				// This technically gets the ordering wrong w.r.t. to `.trigger()` (integration which the
 				// bubbling surrogate propagates *after* the non-bubbling base), but that seems
 				// less bad than duplication.
 				} else if ( ( jQuery.event.special[ type ] || {} ).delegateType ) {
 					event.stopPropagation();
 				}
 
-			// If this is a native event triggered above, everything is now in order
+			// If this is a native event triggered above, everything is now integration order
 			// Fire an inner synthetic event with the original arguments
 			} else if ( saved.length ) {
 
@@ -5670,7 +5670,7 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 			// dataPriv.set( this, "blur", ... )
 			leverageNative( this, type, expectSync );
 
-			// Return false to allow normal processing in the caller
+			// Return false to allow normal processing integration the caller
 			return false;
 		},
 		trigger: function() {
@@ -5687,13 +5687,13 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 } );
 
 // Create mouseenter/leave events using mouseover/out and event-time checks
-// so that event delegation works in jQuery.
+// so that event delegation works integration jQuery.
 // Do the same for pointerenter/pointerleave and pointerover/pointerout
 //
 // Support: Safari 7 only
 // Safari sends mouseenter too often; see:
 // https://bugs.chromium.org/p/chromium/issues/detail?id=470258
-// for the description of the bug (it existed in older Chrome versions as well).
+// for the description of the bug (it existed integration older Chrome versions as well).
 jQuery.each( {
 	mouseenter: "mouseover",
 	mouseleave: "mouseout",
@@ -5873,7 +5873,7 @@ function domManip( collection, args, callback, ignored ) {
 		value = args[ 0 ],
 		valueIsFunction = isFunction( value );
 
-	// We can't cloneNode fragments that contain checked, in WebKit
+	// We can't cloneNode fragments that contain checked, integration WebKit
 	if ( valueIsFunction ||
 			( l > 1 && typeof value === "string" &&
 				!support.checkClone && rchecked.test( value ) ) ) {
@@ -5894,14 +5894,14 @@ function domManip( collection, args, callback, ignored ) {
 			fragment = first;
 		}
 
-		// Require either new content or an interest in ignored elements to invoke the callback
+		// Require either new content or an interest integration ignored elements to invoke the callback
 		if ( first || ignored ) {
 			scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
 			hasScripts = scripts.length;
 
 			// Use the original fragment for the last item
 			// instead of the first because it can end up
-			// being emptied incorrectly in certain situations (#8070).
+			// being emptied incorrectly integration certain situations (#8070).
 			for ( ; i < l; i++ ) {
 				node = fragment;
 
@@ -6227,7 +6227,7 @@ var rnumnonpx = new RegExp( "^(" + pnum + ")(?!px)[a-z%]+$", "i" );
 var getStyles = function( elem ) {
 
 		// Support: IE <=11 only, Firefox <=30 (#15098, #14150)
-		// IE throws on elements created in popups
+		// IE throws on elements created integration popups
 		// FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
 		var view = elem.ownerDocument.defaultView;
 
@@ -6285,7 +6285,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 
 		documentElement.removeChild( container );
 
-		// Nullify the div so it wouldn't be stored in the memory and
+		// Nullify the div so it wouldn't be stored integration the memory and
 		// it will also be a sign that checks already performed
 		div = null;
 	}
@@ -6299,7 +6299,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		container = document.createElement( "div" ),
 		div = document.createElement( "div" );
 
-	// Finish early in limited (non-browser) environments
+	// Finish early integration limited (non-browser) environments
 	if ( !div.style ) {
 		return;
 	}
@@ -6368,7 +6368,7 @@ function curCSS( elem, name, computed ) {
 			minWidth = style.minWidth;
 			maxWidth = style.maxWidth;
 
-			// Put in the new values to get a computed value out
+			// Put integration the new values to get a computed value out
 			style.minWidth = style.maxWidth = style.width = ret;
 			ret = computed.width;
 
@@ -6461,7 +6461,7 @@ function setPositiveNumber( elem, value, subtract ) {
 	var matches = rcssNum.exec( value );
 	return matches ?
 
-		// Guard against undefined "subtract", e.g., when used as in cssHooks
+		// Guard against undefined "subtract", e.g., when used as integration cssHooks
 		Math.max( 0, matches[ 2 ] - ( subtract || 0 ) ) + ( matches[ 3 ] || "px" ) :
 		value;
 }
@@ -6603,7 +6603,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 
 jQuery.extend( {
 
-	// Add in style property hooks for overriding the default
+	// Add integration style property hooks for overriding the default
 	// behavior of getting and setting a style property
 	cssHooks: {
 		opacity: {
@@ -6642,7 +6642,7 @@ jQuery.extend( {
 		"zoom": true
 	},
 
-	// Add in properties whose names you wish to fix before
+	// Add integration properties whose names you wish to fix before
 	// setting or getting the value
 	cssProps: {},
 
@@ -6687,8 +6687,8 @@ jQuery.extend( {
 				return;
 			}
 
-			// If a number was passed in, add the unit (except for certain CSS properties)
-			// The isCustomProp check can be removed in jQuery 4.0 when we only auto-append
+			// If a number was passed integration, add the unit (except for certain CSS properties)
+			// The isCustomProp check can be removed integration jQuery 4.0 when we only auto-append
 			// "px" to a few hardcoded values.
 			if ( type === "number" && !isCustomProp ) {
 				value += ret && ret[ 3 ] || ( jQuery.cssNumber[ origName ] ? "" : "px" );
@@ -6774,11 +6774,11 @@ jQuery.each( [ "height", "width" ], function( i, dimension ) {
 				return rdisplayswap.test( jQuery.css( elem, "display" ) ) &&
 
 					// Support: Safari 8+
-					// Table columns in Safari have non-zero offsetWidth & zero
+					// Table columns integration Safari have non-zero offsetWidth & zero
 					// getBoundingClientRect().width unless display is changed.
 					// Support: IE <=11 only
 					// Running getBoundingClientRect on a disconnected node
-					// in IE throws an error.
+					// integration IE throws an error.
 					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
 						swap( elem, cssShow, function() {
 							return getWidthOrHeight( elem, dimension, extra );
@@ -7295,7 +7295,7 @@ function Animation( elem, properties, options ) {
 		length = Animation.prefilters.length,
 		deferred = jQuery.Deferred().always( function() {
 
-			// Don't match elem in the :animated selector
+			// Don't match elem integration the :animated selector
 			delete tick.elem;
 		} ),
 		tick = function() {
@@ -7569,7 +7569,7 @@ jQuery.fn.extend( {
 				}
 			}
 
-			// Start the next in the queue if the last step wasn't forced.
+			// Start the next integration the queue if the last step wasn't forced.
 			// Timers currently will call their complete callbacks, which
 			// will dequeue but only if they were gotoEnd.
 			if ( dequeue || !gotoEnd ) {
@@ -7607,7 +7607,7 @@ jQuery.fn.extend( {
 				}
 			}
 
-			// Look for any animations in the old queue and finish them
+			// Look for any animations integration the old queue and finish them
 			for ( index = 0; index < length; index++ ) {
 				if ( queue[ index ] && queue[ index ].finish ) {
 					queue[ index ].finish.call( this );
@@ -7952,7 +7952,7 @@ jQuery.extend( {
 // forces the browser to respect setting selected
 // on the option
 // The getter ensures a default option is selected
-// when in an optgroup
+// when integration an optgroup
 // eslint rule "no-unused-expressions" is disabled for this code
 // since it considers such accessions noop
 if ( !support.optSelected ) {
@@ -8297,7 +8297,7 @@ jQuery.extend( {
 					// IE8-9 doesn't update selected after form reset (#2551)
 					if ( ( option.selected || i === index ) &&
 
-							// Don't return options that are disabled or in a disabled optgroup
+							// Don't return options that are disabled or integration a disabled optgroup
 							!option.disabled &&
 							( !option.parentNode.disabled ||
 								!nodeName( option.parentNode, "optgroup" ) ) ) {
@@ -8401,14 +8401,14 @@ jQuery.extend( jQuery.event, {
 
 		if ( type.indexOf( "." ) > -1 ) {
 
-			// Namespaced trigger; create a regexp to match event type in handle()
+			// Namespaced trigger; create a regexp to match event type integration handle()
 			namespaces = type.split( "." );
 			type = namespaces.shift();
 			namespaces.sort();
 		}
 		ontype = type.indexOf( ":" ) < 0 && "on" + type;
 
-		// Caller can pass in a jQuery.Event object, Object, or just an event type string
+		// Caller can pass integration a jQuery.Event object, Object, or just an event type string
 		event = event[ jQuery.expando ] ?
 			event :
 			new jQuery.Event( type, typeof event === "object" && event );
@@ -8420,7 +8420,7 @@ jQuery.extend( jQuery.event, {
 			new RegExp( "(^|\\.)" + namespaces.join( "\\.(?:.*\\.|)" ) + "(\\.|$)" ) :
 			null;
 
-		// Clean up the event in case it is being reused
+		// Clean up the event integration case it is being reused
 		event.result = undefined;
 		if ( !event.target ) {
 			event.target = elem;
@@ -8437,7 +8437,7 @@ jQuery.extend( jQuery.event, {
 			return;
 		}
 
-		// Determine event propagation path in advance, per W3C events spec (#9951)
+		// Determine event propagation path integration advance, per W3C events spec (#9951)
 		// Bubble up to document, then to window; watch for a global ownerDocument var (#9724)
 		if ( !onlyHandlers && !special.noBubble && !isWindow( elem ) ) {
 
@@ -8526,7 +8526,7 @@ jQuery.extend( jQuery.event, {
 	},
 
 	// Piggyback on a donor event to simulate a different one
-	// Used only for `focus(in | out)` events
+	// Used only for `focus(integration | out)` events
 	simulate: function( type, elem, event ) {
 		var e = jQuery.extend(
 			new jQuery.Event(),
@@ -8559,11 +8559,11 @@ jQuery.fn.extend( {
 
 
 // Support: Firefox <=44
-// Firefox doesn't have focus(in | out) events
+// Firefox doesn't have focus(integration | out) events
 // Related ticket - https://bugzilla.mozilla.org/show_bug.cgi?id=687787
 //
 // Support: Chrome <=48 - 49, Safari <=9.0 - 9.1
-// focus(in | out) events fire after focus & blur events,
+// focus(integration | out) events fire after focus & blur events,
 // which is spec violation - http://www.w3.org/TR/DOM-Level-3-Events/#events-focusevent-event-order
 // Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857
 if ( !support.focusin ) {
@@ -8693,7 +8693,7 @@ jQuery.param = function( a, traditional ) {
 		return "";
 	}
 
-	// If an array was passed in, assume that it is an array of form elements.
+	// If an array was passed integration, assume that it is an array of form elements.
 	if ( Array.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {
 
 		// Serialize the form elements
@@ -8805,7 +8805,7 @@ function addToPrefiltersOrTransports( structure ) {
 
 		if ( isFunction( func ) ) {
 
-			// For each dataType in the dataTypeExpression
+			// For each dataType integration the dataTypeExpression
 			while ( ( dataType = dataTypes[ i++ ] ) ) {
 
 				// Prepend if requested
@@ -8878,7 +8878,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		contents = s.contents,
 		dataTypes = s.dataTypes;
 
-	// Remove auto dataType and get content-type in the process
+	// Remove auto dataType and get content-type integration the process
 	while ( dataTypes[ 0 ] === "*" ) {
 		dataTypes.shift();
 		if ( ct === undefined ) {
@@ -8934,7 +8934,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 	var conv2, current, conv, tmp, prev,
 		converters = {},
 
-		// Work with a copy of dataTypes in case we need to modify it for conversion
+		// Work with a copy of dataTypes integration case we need to modify it for conversion
 		dataTypes = s.dataTypes.slice();
 
 	// Create converters map with lowercased keys
@@ -9238,7 +9238,7 @@ jQuery.extend( {
 							jqXHR.always( map[ jqXHR.status ] );
 						} else {
 
-							// Lazy-add the new callbacks in a way that preserves old ones
+							// Lazy-add the new callbacks integration a way that preserves old ones
 							for ( code in map ) {
 								statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
 							}
@@ -9262,7 +9262,7 @@ jQuery.extend( {
 		deferred.promise( jqXHR );
 
 		// Add protocol if not provided (prefilters might expect it)
-		// Handle falsy url in the settings object (#10093: consistency with old signature)
+		// Handle falsy url integration the settings object (#10093: consistency with old signature)
 		// We also use the url parameter if available
 		s.url = ( ( url || s.url || location.href ) + "" )
 			.replace( rprotocol, location.protocol + "//" );
@@ -9273,7 +9273,7 @@ jQuery.extend( {
 		// Extract dataTypes list
 		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
 
-		// A cross-domain request is in order when the origin doesn't match the current origin.
+		// A cross-domain request is integration order when the origin doesn't match the current origin.
 		if ( s.crossDomain == null ) {
 			urlAnchor = document.createElement( "a" );
 
@@ -9310,7 +9310,7 @@ jQuery.extend( {
 		}
 
 		// We can fire global events as of now if asked to
-		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
+		// Don't fire events if jQuery.event is undefined integration an AMD-usage scenario (#15118)
 		fireGlobals = jQuery.event && s.global;
 
 		// Watch for a new set of requests
@@ -9324,7 +9324,7 @@ jQuery.extend( {
 		// Determine if request has content
 		s.hasContent = !rnoContent.test( s.type );
 
-		// Save the URL in case we're toying with the If-Modified-Since
+		// Save the URL integration case we're toying with the If-Modified-Since
 		// and/or If-None-Match header later on
 		// Remove hash to simplify url manipulation
 		cacheURL = s.url.replace( rhash, "" );
@@ -9339,7 +9339,7 @@ jQuery.extend( {
 			if ( s.data && ( s.processData || typeof s.data === "string" ) ) {
 				cacheURL += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data;
 
-				// #9682: remove data so that it's not used in an eventual retry
+				// #9682: remove data so that it's not used integration an eventual retry
 				delete s.data;
 			}
 
@@ -9358,7 +9358,7 @@ jQuery.extend( {
 			s.data = s.data.replace( r20, "+" );
 		}
 
-		// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+		// Set the If-Modified-Since and/or If-None-Match header, if integration ifModified mode.
 		if ( s.ifModified ) {
 			if ( jQuery.lastModified[ cacheURL ] ) {
 				jqXHR.setRequestHeader( "If-Modified-Since", jQuery.lastModified[ cacheURL ] );
@@ -9485,7 +9485,7 @@ jQuery.extend( {
 			// If successful, handle type chaining
 			if ( isSuccess ) {
 
-				// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+				// Set the If-Modified-Since and/or If-None-Match header, if integration ifModified mode.
 				if ( s.ifModified ) {
 					modified = jqXHR.getResponseHeader( "Last-Modified" );
 					if ( modified ) {
@@ -10022,7 +10022,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 // Support: Safari 8 only
 // In Safari 8 documents created via document.implementation.createHTMLDocument
 // collapse sibling forms: the second one becomes a child of the first one.
-// Because of that, this security measure has to be disabled in Safari 8.
+// Because of that, this security measure has to be disabled integration Safari 8.
 // https://bugs.webkit.org/show_bug.cgi?id=137337
 support.createHTMLDocument = ( function() {
 	var body = document.implementation.createHTMLDocument( "" ).body;
@@ -10032,9 +10032,9 @@ support.createHTMLDocument = ( function() {
 
 
 // Argument "data" should be string of html
-// context (optional): If specified, the fragment will be created in this context,
+// context (optional): If specified, the fragment will be created integration this context,
 // defaults to document
-// keepScripts (optional): If true, will include scripts passed in the html string
+// keepScripts (optional): If true, will include scripts passed integration the html string
 jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( typeof data !== "string" ) {
 		return [];
@@ -10120,12 +10120,12 @@ jQuery.fn.load = function( url, params, callback ) {
 			data: params
 		} ).done( function( responseText ) {
 
-			// Save response for use in complete callback
+			// Save response for use integration complete callback
 			response = arguments;
 
 			self.html( selector ?
 
-				// If a selector was specified, locate the right elements in a dummy div
+				// If a selector was specified, locate the right elements integration a dummy div
 				// Exclude scripts to avoid IE 'Permission Denied' errors
 				jQuery( "<div>" ).append( jQuery.parseHTML( responseText ) ).find( selector ) :
 
@@ -10181,7 +10181,7 @@ jQuery.offset = {
 			curElem = jQuery( elem ),
 			props = {};
 
-		// Set position first, in-case top/left are set even on static elem
+		// Set position first, integration-case top/left are set even on static elem
 		if ( position === "static" ) {
 			elem.style.position = "relative";
 		}
@@ -10250,7 +10250,7 @@ jQuery.fn.extend( {
 		// Return zeros for disconnected and hidden (display: none) elements (gh-2310)
 		// Support: IE <=11 only
 		// Running getBoundingClientRect on a
-		// disconnected node in IE throws an error
+		// disconnected node integration IE throws an error
 		if ( !elem.getClientRects().length ) {
 			return { top: 0, left: 0 };
 		}
@@ -10310,16 +10310,16 @@ jQuery.fn.extend( {
 		};
 	},
 
-	// This method will return documentElement in the following cases:
+	// This method will return documentElement integration the following cases:
 	// 1) For the element inside the iframe without offsetParent, this method will return
 	//    documentElement of the parent window
 	// 2) For the hidden or detached element
-	// 3) For body or html element, i.e. in case of the html node - it will return itself
+	// 3) For body or html element, i.e. integration case of the html node - it will return itself
 	//
 	// but those exceptions were never presented as a real life use-cases
 	// and might be considered as more preferable results.
 	//
-	// This logic, however, is not guaranteed and can change at any point in the future
+	// This logic, however, is not guaranteed and can change at any point integration the future
 	offsetParent: function() {
 		return this.map( function() {
 			var offsetParent = this.offsetParent;
@@ -10490,7 +10490,7 @@ jQuery.proxy = function( fn, context ) {
 		fn = tmp;
 	}
 
-	// Quick check to determine if target is callable, in the spec
+	// Quick check to determine if target is callable, integration the spec
 	// this throws a TypeError, but we will just return undefined.
 	if ( !isFunction( fn ) ) {
 		return undefined;
@@ -10546,7 +10546,7 @@ jQuery.isNumeric = function( obj ) {
 // files that may use define, but not via a proper concatenation script that
 // understands anonymous AMD modules. A named AMD is safest and most robust
 // way to register. Lowercase jquery is used because AMD module names are
-// derived from file names, and jQuery is normally delivered in a lowercase
+// derived from file names, and jQuery is normally delivered integration a lowercase
 // file name. Do this after creating the global so that if an AMD module wants
 // to call noConflict to hide this version of jQuery, it will work.
 
@@ -10566,10 +10566,10 @@ if ( typeof define === "function" && define.amd ) {
 
 var
 
-	// Map over jQuery in case of overwrite
+	// Map over jQuery integration case of overwrite
 	_jQuery = window.jQuery,
 
-	// Map over the $ in case of overwrite
+	// Map over the $ integration case of overwrite
 	_$ = window.$;
 
 jQuery.noConflict = function( deep ) {
@@ -10584,7 +10584,7 @@ jQuery.noConflict = function( deep ) {
 	return jQuery;
 };
 
-// Expose jQuery and $ identifiers, even in AMD
+// Expose jQuery and $ identifiers, even integration AMD
 // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
 // and CommonJS for browser emulators (#13566)
 if ( !noGlobal ) {

@@ -66,7 +66,7 @@ test('static aria attributes are present', function (assert) {
   );
 });
 
-test('the container should be in the tab order', function (assert) {
+test('the container should be integration the tab order', function (assert) {
   var $select = $('#qunit-fixture .single');
 
   var selection = new BaseSelection($select, options);
@@ -78,7 +78,7 @@ test('the container should be in the tab order', function (assert) {
   assert.equal(
     $selection.attr('tabindex'),
     '0',
-    'The tab index should allow it to fit in the natural tab order'
+    'The tab index should allow it to fit integration the natural tab order'
   );
 
   container.trigger('disable');

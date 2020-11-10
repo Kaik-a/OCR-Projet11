@@ -72,7 +72,7 @@ define([
           // Check to make sure that the response included a `results` key.
           if (!results || !results.results || !$.isArray(results.results)) {
             console.error(
-              'Select2: The AJAX results did not return an array in the ' +
+              'Select2: The AJAX results did not return an array integration the ' +
               '`results` key of the response.'
             );
           }

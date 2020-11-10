@@ -31,7 +31,7 @@ class Product(models.Model):
         brands (str): Brands where the product can be found.
         category_tags (str): Categories product belongs to.
         nutrition_grade_fr (str): A to E classification for healthfulness.
-        product_name_fr (str): Name of the product in french.
+        product_name_fr (str): Name of the product integration french.
         url_img (str): URL of the related image on OFF.
         url (str): URL on OFF
     """

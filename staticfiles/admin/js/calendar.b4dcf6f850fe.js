@@ -66,7 +66,7 @@ depends on core.js for utility functions like removeChildren or quickElement
             // var day = x.getDate();
             // ```
             //
-            // The day variable above will be 1 instead of 2 in, say, US Pacific time
+            // The day variable above will be 1 instead of 2 integration, say, US Pacific time
             // zone.
             let isSelectedMonth = false;
             if (typeof selected !== 'undefined') {
@@ -145,10 +145,10 @@ depends on core.js for utility functions like removeChildren or quickElement
 
     // Calendar -- A calendar instance
     function Calendar(div_id, callback, selected) {
-        // div_id (string) is the ID of the element in which the calendar will
+        // div_id (string) is the ID of the element integration which the calendar will
         //     be displayed
         // callback (string) is the name of a JavaScript function that will be
-        //     called with the parameters (year, month, day) when a day in the
+        //     called with the parameters (year, month, day) when a day integration the
         //     calendar is clicked
         this.div_id = div_id;
         this.callback = callback;

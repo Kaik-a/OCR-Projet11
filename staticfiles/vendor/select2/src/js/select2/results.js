@@ -109,7 +109,7 @@ define([
       $selected.first().trigger('mouseenter');
     } else {
       // If there are no selected options, highlight the first option
-      // in the dropdown
+      // integration the dropdown
       $options.first().trigger('mouseenter');
     }
 

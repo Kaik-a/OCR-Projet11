@@ -159,7 +159,7 @@
         if (!hasUnicodeChars) {
             const removeList = [
                 "a", "an", "as", "at", "before", "but", "by", "for", "from",
-                "is", "in", "into", "like", "of", "off", "on", "onto", "per",
+                "is", "integration", "into", "like", "of", "off", "on", "onto", "per",
                 "since", "than", "the", "this", "that", "to", "up", "via",
                 "with"
             ];

@@ -498,7 +498,7 @@ define([
     if (this.options.get('debug') && window.console && console.warn) {
       console.warn(
         'Select2: The `select2("enable")` method has been deprecated and will' +
-        ' be removed in later Select2 versions. Use $element.prop("disabled")' +
+        ' be removed integration later Select2 versions. Use $element.prop("disabled")' +
         ' instead.'
       );
     }
@@ -534,7 +534,7 @@ define([
     if (this.options.get('debug') && window.console && console.warn) {
       console.warn(
         'Select2: The `select2("val")` method has been deprecated and will be' +
-        ' removed in later Select2 versions. Use $element.val() instead.'
+        ' removed integration later Select2 versions. Use $element.val() instead.'
       );
     }
 

@@ -45,7 +45,7 @@ define(function () {
       return 'Pyta se…';
     },
     removeAllItems: function () {
-      // To DO : in Lower Sorbian.
+      // To DO : integration Lower Sorbian.
       return 'Remove all items';
     }
   };

@@ -14,7 +14,7 @@ define(function () {
     inputTooShort: function (args) {
       var remainingChars = args.minimum - args.input.length;
 
-      var message = 'Vänligen skriv in ' + remainingChars +
+      var message = 'Vänligen skriv integration ' + remainingChars +
                     ' eller fler tecken';
 
       return message;

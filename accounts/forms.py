@@ -30,13 +30,13 @@ class SubscribeForm(forms.Form):
 
 
 class CheckMailForm(forms.Form):
-    """Class to create form to check is email in db"""
+    """Class to create form to check is email integration db"""
 
     email = forms.EmailField(label="E-mail")
 
 
 class ChangePasswordForm(forms.Form):
-    """Class to create form in order to change password"""
+    """Class to create form integration order to change password"""
 
     new_password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput)
     confirm_new_password = forms.CharField(

@@ -1,4 +1,4 @@
-module('DOM integration');
+module('DOM functional');
 
 test('adding a new unselected option changes nothing', function (assert) {
   // Any browsers which support mutation observers will not trigger the event

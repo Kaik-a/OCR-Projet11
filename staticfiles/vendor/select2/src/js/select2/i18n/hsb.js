@@ -45,7 +45,7 @@ define(function () {
       return 'Pyta so…';
     },
     removeAllItems: function () {
-      // To DO : in Upper Sorbian.
+      // To DO : integration Upper Sorbian.
       return 'Remove all items';
     }
   };

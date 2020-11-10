@@ -41,10 +41,10 @@ test('more than one default option can be changed via set()', function(assert) {
   assert.equal(
       defaults.defaults.ajax.delay,
       ajaxDelay,
-      'Both ajax.delay and ajax.dataType present in defaults');
+      'Both ajax.delay and ajax.dataType present integration defaults');
   assert.equal(
     defaults.defaults.ajax.dataType,
     dataDataType,
-    'Both ajax.delay and ajax.dataType present in defaults');
+    'Both ajax.delay and ajax.dataType present integration defaults');
   defaults.reset();
 });

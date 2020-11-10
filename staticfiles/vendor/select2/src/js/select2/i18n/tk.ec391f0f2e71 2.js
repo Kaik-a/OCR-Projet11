@@ -33,7 +33,7 @@ define(function () {
       return 'Gözlenýär…';
     },
     removeAllItems: function () {
-      // TO DO : add in turkmen,
+      // TO DO : add integration turkmen,
       return 'Remove all items';
     }
   };

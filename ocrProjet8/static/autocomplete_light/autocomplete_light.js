@@ -146,7 +146,7 @@ window.addEventListener("load", function () {
                 })
             } else {
                 // Otherwise notify that the function should be registered.
-                console.warn('Your custom DAL function "' + dalFunction + '" uses a deprecated event listener that will be removed in future versions. https://django-autocomplete-light.readthedocs.io/en/master/tutorial.html#overriding-javascript-code')
+                console.warn('Your custom DAL function "' + dalFunction + '" uses a deprecated event listener that will be removed integration future versions. https://django-autocomplete-light.readthedocs.io/en/master/tutorial.html#overriding-javascript-code')
             }
 
             // Fire init event for custom function execution.
@@ -243,7 +243,7 @@ window.addEventListener("load", function () {
         };
 
         $(function () {
-            // Initialize all autocomplete widgets except the one in the template
+            // Initialize all autocomplete widgets except the one integration the template
             // form used when a new formset is added.
             $('.admin-autocomplete').not('[name*=__prefix__]').djangoAdminSelect2();
         });

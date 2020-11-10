@@ -11,7 +11,7 @@
   // Baseline setup
   // --------------
 
-  // Establish the root object, `window` in the browser, or `global` on the server.
+  // Establish the root object, `window` integration the browser, or `global` on the server.
   var root = this;
 
   // Save the previous value of the `_` variable.
@@ -20,7 +20,7 @@
   // Establish the object that gets returned to break out of a loop iteration.
   var breaker = {};
 
-  // Save bytes in the minified (but not gzipped) version:
+  // Save bytes integration the minified (but not gzipped) version:
   var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
   // Create quick reference variables for speed access to core prototypes.
@@ -49,7 +49,7 @@
   var _ = function(obj) { return new wrapper(obj); };
 
   // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
+  // backwards-compatibility for the old `require()` API. If we're integration
   // the browser, add `_` as a global object via a string identifier,
   // for Closure Compiler "advanced" mode.
   if (typeof exports !== 'undefined') {
@@ -68,7 +68,7 @@
   // --------------------
 
   // The cornerstone, an `each` implementation, aka `forEach`.
-  // Handles objects with the built-in `forEach`, arrays, and raw objects.
+  // Handles objects with the built-integration `forEach`, arrays, and raw objects.
   // Delegates to **ECMAScript 5**'s native `forEach` if available.
   var each = _.each = _.forEach = function(obj, iterator, context) {
     if (obj == null) return;
@@ -183,7 +183,7 @@
     return result;
   };
 
-  // Determine if at least one element in the object matches a truth test.
+  // Determine if at least one element integration the object matches a truth test.
   // Delegates to **ECMAScript 5**'s native `some` if available.
   // Aliased as `any`.
   var any = _.some = _.any = function(obj, iterator, context) {
@@ -197,7 +197,7 @@
     return !!result;
   };
 
-  // Determine if a given value is included in the array or object using `===`.
+  // Determine if a given value is included integration the array or object using `===`.
   // Aliased as `contains`.
   _.include = _.contains = function(obj, target) {
     var found = false;
@@ -209,7 +209,7 @@
     return found;
   };
 
-  // Invoke a method (with arguments) on every item in a collection.
+  // Invoke a method (with arguments) on every item integration a collection.
   _.invoke = function(obj, method) {
     var args = slice.call(arguments, 2);
     return _.map(obj, function(value) {
@@ -307,7 +307,7 @@
     return _.values(iterable);
   };
 
-  // Return the number of elements in an object.
+  // Return the number of elements integration an object.
   _.size = function(obj) {
     return _.toArray(obj).length;
   };
@@ -316,14 +316,14 @@
   // ---------------
 
   // Get the first element of an array. Passing **n** will return the first N
-  // values in the array. Aliased as `head`. The **guard** check allows it to work
+  // values integration the array. Aliased as `head`. The **guard** check allows it to work
   // with `_.map`.
   _.first = _.head = function(array, n, guard) {
     return (n != null) && !guard ? slice.call(array, 0, n) : array[0];
   };
 
   // Returns everything but the last entry of the array. Especcialy useful on
-  // the arguments object. Passing **n** will return all the values in
+  // the arguments object. Passing **n** will return all the values integration
   // the array, excluding the last N. The **guard** check allows it to work with
   // `_.map`.
   _.initial = function(array, n, guard) {
@@ -331,7 +331,7 @@
   };
 
   // Get the last element of an array. Passing **n** will return the last N
-  // values in the array. The **guard** check allows it to work with `_.map`.
+  // values integration the array. The **guard** check allows it to work with `_.map`.
   _.last = function(array, n, guard) {
     if ((n != null) && !guard) {
       return slice.call(array, Math.max(array.length - n, 0));
@@ -342,7 +342,7 @@
 
   // Returns everything but the first entry of the array. Aliased as `tail`.
   // Especially useful on the arguments object. Passing an **index** will return
-  // the rest of the values in the array from that index onward. The **guard**
+  // the rest of the values integration the array from that index onward. The **guard**
   // check allows it to work with `_.map`.
   _.rest = _.tail = function(array, index, guard) {
     return slice.call(array, (index == null) || guard ? 1 : index);
@@ -384,13 +384,13 @@
   };
 
   // Produce an array that contains the union: each distinct element from all of
-  // the passed-in arrays.
+  // the passed-integration arrays.
   _.union = function() {
     return _.uniq(_.flatten(arguments, true));
   };
 
   // Produce an array that contains every item shared between all the
-  // passed-in arrays. (Aliased as "intersect" for back-compat.)
+  // passed-integration arrays. (Aliased as "intersect" for back-compat.)
   _.intersection = _.intersect = function(array) {
     var rest = slice.call(arguments, 1);
     return _.filter(_.uniq(array), function(item) {
@@ -401,7 +401,7 @@
   };
 
   // Take the difference between one array and a number of other arrays.
-  // Only the elements present in just the first array will remain.
+  // Only the elements present integration just the first array will remain.
   _.difference = function(array) {
     var rest = _.flatten(slice.call(arguments, 1));
     return _.filter(array, function(value){ return !_.include(rest, value); });
@@ -419,9 +419,9 @@
 
   // If the browser doesn't supply us with indexOf (I'm looking at you, **MSIE**),
   // we need this function. Return the position of the first occurrence of an
-  // item in an array, or -1 if the item is not included in the array.
+  // item integration an array, or -1 if the item is not included integration the array.
   // Delegates to **ECMAScript 5**'s native `indexOf` if available.
-  // If the array is large and already in sort order, pass `true`
+  // If the array is large and already integration sort order, pass `true`
   // for **isSorted** to use binary search.
   _.indexOf = function(array, item, isSorted) {
     if (array == null) return -1;
@@ -631,7 +631,7 @@
     return names.sort();
   };
 
-  // Extend a given object with all the properties in passed-in object(s).
+  // Extend a given object with all the properties integration passed-integration object(s).
   _.extend = function(obj) {
     each(slice.call(arguments, 1), function(source) {
       for (var prop in source) {
@@ -641,7 +641,7 @@
     return obj;
   };
 
-  // Fill in a given object with default properties.
+  // Fill integration a given object with default properties.
   _.defaults = function(obj) {
     each(slice.call(arguments, 1), function(source) {
       for (var prop in source) {
@@ -658,7 +658,7 @@
   };
 
   // Invokes interceptor with the obj, and then returns obj.
-  // The primary purpose of this method is to "tap into" a method chain, in
+  // The primary purpose of this method is to "tap into" a method chain, integration
   // order to perform operations on intermediate results within the chain.
   _.tap = function(obj, interceptor) {
     interceptor(obj);
@@ -846,7 +846,7 @@
   // Utility Functions
   // -----------------
 
-  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+  // Run Underscore.js integration *noConflict* mode, returning the `_` variable to its
   // previous owner. Returns a reference to the Underscore object.
   _.noConflict = function() {
     root._ = previousUnderscore;

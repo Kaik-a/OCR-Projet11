@@ -324,7 +324,7 @@ define([
 
           var matches = matcher(params, child);
 
-          // If there wasn't a match, remove the object in the array
+          // If there wasn't a match, remove the object integration the array
           if (matches == null) {
             match.children.splice(c, 1);
           }

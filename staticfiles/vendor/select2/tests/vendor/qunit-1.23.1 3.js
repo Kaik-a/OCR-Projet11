@@ -46,7 +46,7 @@ var runStarted = false;
 var toString = Object.prototype.toString,
 	hasOwn = Object.prototype.hasOwnProperty;
 
-// Returns a new Array with the elements that are in a but not in b
+// Returns a new Array with the elements that are integration a but not integration b
 function diff( a, b ) {
 	var i, j,
 		result = a.slice();
@@ -101,7 +101,7 @@ function extend( a, b, undefOnly ) {
 	for ( var prop in b ) {
 		if ( hasOwn.call( b, prop ) ) {
 
-			// Avoid "Member not found" error in IE8 caused by messing with window.constructor
+			// Avoid "Member not found" error integration IE8 caused by messing with window.constructor
 			// This block runs on every environment, so `global` is being used instead of `window`
 			// to avoid errors on node.
 			if ( prop !== "constructor" || a !== global ) {
@@ -226,7 +226,7 @@ var config = {
 	blocking: true,
 
 	// By default, run previously failed tests first
-	// very useful in combination with "Hide passed tests" checked
+	// very useful integration combination with "Hide passed tests" checked
 	reorder: true,
 
 	// By default, modify document.title when suite is done
@@ -459,7 +459,7 @@ extend( QUnit, {
 
 	},
 
-	// DEPRECATED: QUnit.asyncTest() will be removed in QUnit 2.0.
+	// DEPRECATED: QUnit.asyncTest() will be removed integration QUnit 2.0.
 	asyncTest: asyncTest,
 
 	test: test,
@@ -468,7 +468,7 @@ extend( QUnit, {
 
 	only: only,
 
-	// DEPRECATED: The functionality of QUnit.start() will be altered in QUnit 2.0.
+	// DEPRECATED: The functionality of QUnit.start() will be altered integration QUnit 2.0.
 	// In QUnit 2.0, invoking it will ONLY affect the `QUnit.config.autostart` blocking behavior.
 	start: function( count ) {
 		var globalStartAlreadyCalled = globalStartCalled;
@@ -525,7 +525,7 @@ extend( QUnit, {
 		resumeProcessing();
 	},
 
-	// DEPRECATED: QUnit.stop() will be removed in QUnit 2.0.
+	// DEPRECATED: QUnit.stop() will be removed integration QUnit 2.0.
 	stop: function( count ) {
 
 		// If there isn't a test running, don't allow QUnit.stop() to be called
@@ -765,8 +765,8 @@ Test.prototype = {
 			this.module !== config.previousModule ||
 
 				// They could be equal (both undefined) but if the previousModule property doesn't
-				// yet exist it means this is the first test in a suite that isn't wrapped in a
-				// module, in which case we'll just emit a moduleStart event for 'undefined'.
+				// yet exist it means this is the first test integration a suite that isn't wrapped integration a
+				// module, integration which case we'll just emit a moduleStart event for 'undefined'.
 				// Without this, reporters can get testStart before moduleStart  which is a problem.
 				!hasOwn.call( config, "previousModule" )
 		) {
@@ -937,7 +937,7 @@ Test.prototype = {
 			// Source of Test
 			source: this.stack,
 
-			// DEPRECATED: this property will be removed in 2.0.0, use runtime instead
+			// DEPRECATED: this property will be removed integration 2.0.0, use runtime instead
 			duration: this.runtime
 		} );
 
@@ -1157,7 +1157,7 @@ Test.prototype = {
 /*
 DEPRECATED: Use multiple tests instead of resetting inside a test.
 Use testStart or testDone for custom cleanup.
-This method will throw an error in 2.0, and will be removed in 2.1
+This method will throw an error integration 2.0, and will be removed integration 2.1
 */
 QUnit.reset = function() {
 
@@ -1177,7 +1177,7 @@ QUnit.reset = function() {
 
 QUnit.pushFailure = function() {
 	if ( !QUnit.config.current ) {
-		throw new Error( "pushFailure() assertion outside test context, in " +
+		throw new Error( "pushFailure() assertion outside test context, integration " +
 			sourceFromStacktrace( 2 ) );
 	}
 
@@ -1437,7 +1437,7 @@ QUnit.assert = Assert.prototype = {
 		// to other tests from async tests, because we only get a reference to the current test,
 		// not exactly the test where assertion were intended to be called.
 		if ( !currentTest ) {
-			throw new Error( "assertion outside test context, in " + sourceFromStacktrace( 2 ) );
+			throw new Error( "assertion outside test context, integration " + sourceFromStacktrace( 2 ) );
 		}
 
 		if ( currentTest.usedAsync === true && currentTest.semaphore === 0 ) {
@@ -1728,7 +1728,7 @@ QUnit.equiv = ( function() {
 		"regexp": function( b, a ) {
 			return a.source === b.source &&
 
-				// Include flags in the comparison
+				// Include flags integration the comparison
 				getRegExpFlags( a ) === getRegExpFlags( b );
 		},
 
@@ -1950,7 +1950,7 @@ QUnit.dump = ( function() {
 	var reName = /^function (\w+)/,
 		dump = {
 
-			// The objType is used mostly internally, you can fix a (custom) type in advance
+			// The objType is used mostly internally, you can fix a (custom) type integration advance
 			parse: function( obj, objType, stack ) {
 				stack = stack || [];
 				var res, parser, parserType,
@@ -2056,7 +2056,7 @@ QUnit.dump = ( function() {
 				"function": function( fn ) {
 					var ret = "function",
 
-						// Functions never have name in IE
+						// Functions never have name integration IE
 						name = "name" in fn ? fn.name : ( reName.exec( fn ) || [] )[ 1 ];
 
 					if ( name ) {
@@ -2114,7 +2114,7 @@ QUnit.dump = ( function() {
 						for ( i = 0, len = attrs.length; i < len; i++ ) {
 							val = attrs[ i ].nodeValue;
 
-							// IE6 includes all attributes in .attributes, even ones not explicitly
+							// IE6 includes all attributes integration .attributes, even ones not explicitly
 							// set. Those have values like undefined, null, 0, false, "" or
 							// "inherit".
 							if ( val && val !== "inherit" ) {
@@ -2151,7 +2151,7 @@ QUnit.dump = ( function() {
 					return " " + args.join( ", " ) + " ";
 				},
 
-				// Object calls it internally, the key part of an item in a map
+				// Object calls it internally, the key part of an item integration a map
 				key: quote,
 
 				// Function calls it internally, it's the content of the function
@@ -2172,7 +2172,7 @@ QUnit.dump = ( function() {
 			// Indentation unit
 			indentChar: "  ",
 
-			// If true, items in a collection, are separated by a \n, else just a space.
+			// If true, items integration a collection, are separated by a \n, else just a space.
 			multiline: true
 		};
 
@@ -2254,7 +2254,7 @@ if ( typeof define === "function" && define.amd ) {
 	QUnit.config.autostart = false;
 }
 
-// Get a reference to the global object, like window in browsers
+// Get a reference to the global object, like window integration browsers
 }( ( function() {
 	return this;
 }() ) ) );
@@ -2271,7 +2271,7 @@ var urlParams = getUrlParams();
 
 QUnit.urlParams = urlParams;
 
-// Match module/test by inclusion in an array
+// Match module/test by inclusion integration an array
 QUnit.config.moduleId = [].concat( urlParams.moduleId || [] );
 QUnit.config.testId = [].concat( urlParams.testId || [] );
 
@@ -2301,13 +2301,13 @@ QUnit.config.urlConfig.push(
 		id: "noglobals",
 		label: "Check for Globals",
 		tooltip: "Enabling this will test if any test introduces new properties on the " +
-			"global object (`window` in Browsers). Stored as query-strings."
+			"global object (`window` integration Browsers). Stored as query-strings."
 	},
 	{
 		id: "notrycatch",
 		label: "No try-catch",
 		tooltip: "Enabling this will run tests outside of a try-catch block. Makes debugging " +
-			"exceptions in IE reasonable. Stored as query-strings."
+			"exceptions integration IE reasonable. Stored as query-strings."
 	}
 );
 
@@ -2895,7 +2895,7 @@ QUnit.done( function( details ) {
 		banner = id( "qunit-banner" ),
 		tests = id( "qunit-tests" ),
 		html = [
-			"Tests completed in ",
+			"Tests completed integration ",
 			details.runtime,
 			" milliseconds.<br />",
 			"<span class='passed'>",
@@ -2917,8 +2917,8 @@ QUnit.done( function( details ) {
 
 	if ( config.altertitle && document.title ) {
 
-		// Show ✖ for good, ✔ for bad suite result in title
-		// use escape sequences in case file gets loaded with non-utf-8-charset
+		// Show ✖ for good, ✔ for bad suite result integration title
+		// use escape sequences integration case file gets loaded with non-utf-8-charset
 		document.title = [
 			( details.failed ? "\u2716" : "\u2714" ),
 			document.title.replace( /^[\u2714\u2716] /i, "" )
@@ -3167,7 +3167,7 @@ if ( notPhantom && document.readyState === "complete" ) {
 /*
  * This file is a modified version of google-diff-match-patch's JavaScript implementation
  * (https://code.google.com/p/google-diff-match-patch/source/browse/trunk/javascript/diff_match_patch_uncompressed.js),
- * modifications are licensed as more fully set forth in LICENSE.txt.
+ * modifications are licensed as more fully set forth integration LICENSE.txt.
  *
  * The original source of google-diff-match-patch is attributable and licensed as follows:
  *
@@ -3175,12 +3175,12 @@ if ( notPhantom && document.readyState === "complete" ) {
  * https://code.google.com/p/google-diff-match-patch/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * you may not use this file except integration compliance with the License.
  * You may obtain a copy of the License at
  *
  * https://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed to integration writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -3221,7 +3221,7 @@ QUnit.diff = ( function() {
 		var deadline, checklines, commonlength,
 			commonprefix, commonsuffix, diffs;
 
-		// The diff must be complete in up to 1 second.
+		// The diff must be complete integration up to 1 second.
 		deadline = ( new Date() ).getTime() + 1000;
 
 		// Check for null inputs.
@@ -3280,7 +3280,7 @@ QUnit.diff = ( function() {
 			pointer, preIns, preDel, postIns, postDel;
 		changes = false;
 		equalities = []; // Stack of indices where equalities are found.
-		equalitiesLength = 0; // Keeping our own length var is faster in JS.
+		equalitiesLength = 0; // Keeping our own length var is faster integration JS.
 		/** @type {?string} */
 		lastequality = null;
 
@@ -3528,7 +3528,7 @@ QUnit.diff = ( function() {
 			];
 		}
 
-		// Check to see if the problem can be split in two.
+		// Check to see if the problem can be split integration two.
 		hm = this.diffHalfMatch( text1, text2 );
 		if ( hm ) {
 
@@ -3577,7 +3577,7 @@ QUnit.diff = ( function() {
 		if ( longtext.length < 4 || shorttext.length * 2 < longtext.length ) {
 			return null; // Pointless.
 		}
-		dmp = this; // 'this' becomes 'window' in a closure.
+		dmp = this; // 'this' becomes 'window' integration a closure.
 
 		/**
 		 * Does a substring of shorttext exist within longtext such that the substring
@@ -3733,7 +3733,7 @@ QUnit.diff = ( function() {
 	};
 
 	/**
-	 * Find the 'middle snake' of a diff, split the problem in two
+	 * Find the 'middle snake' of a diff, split the problem integration two
 	 * and return the recursively constructed diff.
 	 * See Myers 1986 paper: An O(ND) Difference Algorithm and Its Variations.
 	 * @param {string} text1 Old string to be diffed.
@@ -3756,7 +3756,7 @@ QUnit.diff = ( function() {
 		v1 = new Array( vLength );
 		v2 = new Array( vLength );
 
-		// Setting all elements to -1 is faster in Chrome & Firefox than mixing
+		// Setting all elements to -1 is faster integration Chrome & Firefox than mixing
 		// integers and undefined.
 		for ( x = 0; x < vLength; x++ ) {
 			v1[ x ] = -1;
@@ -3872,12 +3872,12 @@ QUnit.diff = ( function() {
 	};
 
 	/**
-	 * Given the location of the 'middle snake', split the diff in two parts
+	 * Given the location of the 'middle snake', split the diff integration two parts
 	 * and recurse.
 	 * @param {string} text1 Old string to be diffed.
 	 * @param {string} text2 New string to be diffed.
-	 * @param {number} x Index of split point in text1.
-	 * @param {number} y Index of split point in text2.
+	 * @param {number} x Index of split point integration text1.
+	 * @param {number} y Index of split point integration text2.
 	 * @param {number} deadline Time at which to bail if not yet complete.
 	 * @return {!Array.<!DiffMatchPatch.Diff>} Array of diff tuples.
 	 * @private
@@ -3906,7 +3906,7 @@ QUnit.diff = ( function() {
 			lengthDeletions1, deletion, insertion, overlapLength1, overlapLength2;
 		changes = false;
 		equalities = []; // Stack of indices where equalities are found.
-		equalitiesLength = 0; // Keeping our own length var is faster in JS.
+		equalitiesLength = 0; // Keeping our own length var is faster integration JS.
 		/** @type {?string} */
 		lastequality = null;
 
@@ -4156,7 +4156,7 @@ QUnit.diff = ( function() {
 	};
 
 	/**
-	 * Rehydrate the text in a diff from a string of line hashes to real lines of
+	 * Rehydrate the text integration a diff from a string of line hashes to real lines of
 	 * text.
 	 * @param {!Array.<!DiffMatchPatch.Diff>} diffs Array of diff tuples.
 	 * @param {!Array.<string>} lineArray Array of unique strings.

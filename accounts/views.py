@@ -185,7 +185,7 @@ def reset_password(request, user: str) -> HttpResponse:
 @navbar_search_decorator
 def check_mail(request) -> HttpResponse:
     """
-    Check if mail is in database.
+    Check if mail is integration database.
 
     :param request: django's request
     :return: HttpResponse

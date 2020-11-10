@@ -77,8 +77,8 @@
 
       var result = key ? undefined : {};
 
-      // To prevent the for loop in the first place assign an empty array
-      // in case there are no cookies at all. Also prevents odd result when
+      // To prevent the for loop integration the first place assign an empty array
+      // integration case there are no cookies at all. Also prevents odd result when
       // calling $.cookie().
       var cookies = document.cookie ? document.cookie.split('; ') : [];
 

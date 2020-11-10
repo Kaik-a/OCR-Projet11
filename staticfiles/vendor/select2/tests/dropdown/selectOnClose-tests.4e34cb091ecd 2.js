@@ -56,7 +56,7 @@ test('will not trigger if the results list is empty', function (assert) {
   assert.equal(
     $dropdown.find('li').length,
     0,
-    'There should not be any results in the dropdown'
+    'There should not be any results integration the dropdown'
   );
 
   container.trigger('close');
@@ -89,7 +89,7 @@ test('will not trigger if no results here highlighted', function (assert) {
   assert.equal(
     $dropdown.find('li').length,
     1,
-    'There should be one result in the dropdown'
+    'There should be one result integration the dropdown'
   );
 
   assert.equal(
@@ -128,7 +128,7 @@ test('will trigger if there is a highlighted result', function (assert) {
   assert.equal(
     $dropdown.find('li').length,
     1,
-    'There should be one result in the dropdown'
+    'There should be one result integration the dropdown'
   );
 
   $dropdown.find('li').addClass('select2-results__option--highlighted');

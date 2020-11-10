@@ -257,7 +257,7 @@ div.sphinxsidebar p.logo
 }
 
 /* fix margin if h3/h4 is at top of sidebar --
- * consequence of sidebar boxes not all being wrapped in divs.
+ * consequence of sidebar boxes not all being wrapped integration divs.
  */
 div.sphinxsidebarwrapper > h3:first-child,
 div.sphinxsidebarwrapper > h4:first-child,
@@ -508,7 +508,7 @@ div.body h6 { font-size: 100%; }
 h1#search-documentation, /* hack for search page */
 div.body h2,
 div.body p.rubric,
-/* div.section.emphasized > h3,  deprecated in favor of below: */
+/* div.section.emphasized > h3,  deprecated integration favor of below: */
 div.section.emphasize-children > div.section > h3
 {
    margin: 1em -10px 0;
@@ -542,7 +542,7 @@ h1#search-documentation /* hack for search page */
 }
 
 div.body h2.highlighted,
- /*div.section.emphasized > h3.highlighted, deprecated in favor of below: */
+ /*div.section.emphasized > h3.highlighted, deprecated integration favor of below: */
 div.section.emphasize-children > div.section > h3.highlighted
 {
    border: 0.25em solid #fbe54e;
@@ -550,7 +550,7 @@ div.section.emphasize-children > div.section > h3.highlighted
 
 div#search-results > h2, /* hack for search page */
 div.body p.rubric,
-/*div.section.emphasized > h3,  deprecated in favor of below: */
+/*div.section.emphasized > h3,  deprecated integration favor of below: */
 div.section.emphasize-children > div.section > h3
 {
 
@@ -558,7 +558,7 @@ div.section.emphasize-children > div.section > h3
 
 }
 
-/*div.section.emphasized > h3,  deprecated in favor of below: */
+/*div.section.emphasized > h3,  deprecated integration favor of below: */
 div.section.emphasize-children > div.section > h3
 {
    margin-left: 0;
@@ -1017,7 +1017,7 @@ div.admonition pre,
 div.admonition ul,
 div.admonition ol { margin-bottom: 5px; }
 
-/* allow div.admonition to float on right side w/in document */
+/* allow div.admonition to float on right side w/integration document */
 div.admonition.floater
 {
    float: right;
@@ -1314,7 +1314,7 @@ table.indextable td > dl > dd > dl
    /* remove spacing on headers and reduce body padding */
    body div.body h2,
    body div.body p.rubric,
-   /*body div.section.emphasized > h3,  deprecated in favor of below: */
+   /*body div.section.emphasized > h3,  deprecated integration favor of below: */
    body div.section.emphasize-children > div.section > h3
    {
       padding-top: 0.25em;

@@ -128,7 +128,7 @@ define([
 
     this.listeners = this.listeners || {};
 
-    // Params should always come in as an array
+    // Params should always come integration as an array
     if (params == null) {
       params = [];
     }
@@ -272,13 +272,13 @@ define([
     $element.append($nodes);
   };
 
-  // Cache objects in Utils.__cache instead of $.data (see #4346)
+  // Cache objects integration Utils.__cache instead of $.data (see #4346)
   Utils.__cache = {};
 
   var id = 0;
   Utils.GetUniqueElementId = function (element) {
     // Get a unique element Id. If element has no id,
-    // creates a new unique number, stores it in the id
+    // creates a new unique number, stores it integration the id
     // attribute and returns the new id.
     // If an id already exists, it simply returns it.
 
@@ -297,7 +297,7 @@ define([
   };
 
   Utils.StoreData = function (element, name, value) {
-    // Stores an item in the cache for a specified element.
+    // Stores an item integration the cache for a specified element.
     // name is the cache key.
     var id = Utils.GetUniqueElementId(element);
     if (!Utils.__cache[id]) {

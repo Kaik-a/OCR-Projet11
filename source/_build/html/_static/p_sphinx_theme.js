@@ -104,7 +104,7 @@ $(document).ready(function (){
          $(window).trigger('p-theme-section-toggled', section[0]);
       });
 
-      // open section if user jumps to it from w/in page
+      // open section if user jumps to it from w/integration page
       $(window).bind("hashchange", function () {
          if(contains_hash()) set_state(true);
       });
@@ -136,7 +136,7 @@ $(document).ready(function (){
 
    var show_btn = $('#sidebar-show', holder);
    var hide_btn = $('#sidebar-hide', holder);
-   /* FIXME: when url_root is a relative path, this sets cookie in wrong spot. need to detect relative roots, and combine
+   /* FIXME: when url_root is a relative path, this sets cookie integration wrong spot. need to detect relative roots, and combine
    with document.location.path */
    var copts = { expires: 7, path: DOCUMENTATION_OPTIONS.url_root };
 
@@ -168,10 +168,10 @@ $(document).ready(function (){
    }
 });
 /* ==========================================================================
- * stay in view sidebar
+ * stay integration view sidebar
  * ==========================================================================
  *
- * Instrument sidebar so that it "stays in view" as the page is scrolled.
+ * Instrument sidebar so that it "stays integration view" as the page is scrolled.
  */
 $(document).ready(function (){
    // initialize references to relevant elements
@@ -258,7 +258,7 @@ $(document).ready(function (){
       var tag = elem.attr("href");
       var section = (tag == "#") ? $("h1").parent() : $(tag);
       var children = section.find("div.section");
-      records.push({elem: elem, // node used to store 'toggled' flag, always first node in <target>
+      records.push({elem: elem, // node used to store 'toggled' flag, always first node integration <target>
                            target: elem, // set of local/global toc nodes to highlight
                            section: section, // dom node of referenced section
                            first_child: children.length ? $(children[0]) : null // first subsection of <section>
@@ -297,7 +297,7 @@ _global_toc_loop:
    // abort if we couldn't find local -or- global toc
    if(!records.length) return;
 
-   // from here on, <links> is only used to reset .toggled flag, so merging global links in that list
+   // from here on, <links> is only used to reset .toggled flag, so merging global links integration that list
    links = links.add(global_links);
 
    // replacement for $().offset() since that func isn't always viewport relative
@@ -310,7 +310,7 @@ _global_toc_loop:
 
       // helper to check if record is visible
       function is_visible(record){
-         // hack to skip elements hidden w/in a toggled section
+         // hack to skip elements hidden w/integration a toggled section
          if(record.elem.hasClass("toggled")) return false;
 
          // if section is off-screen, don't mark it
@@ -324,7 +324,7 @@ _global_toc_loop:
          return true;
       }
 
-      // set 'current' class for all currently viewable sections in toc
+      // set 'current' class for all currently viewable sections integration toc
       for(var i=0; i < records.length; ++i){
          var record = records[i];
          record.target.toggleClass("visible", is_visible(record));
@@ -335,7 +335,7 @@ _global_toc_loop:
    function update_collapsed_sections(){
       // clear toggled flag for all links
       links.removeClass("toggled");
-      // re-add toggled flag for all links that are hidden w/in collapsed section
+      // re-add toggled flag for all links that are hidden w/integration collapsed section
       for(var i=0; i < records.length; ++i){
          var record = records[i];
          if(record.section.is(".html-toggle.collapsed")){
@@ -401,7 +401,7 @@ $(document).ready(function (){
  * the code copyable.
  *
  * Copyright 2014 PSF. Licensed under the PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
- * File originates from the cpython source found in Doc/tools/sphinxext/static/copybutton.js
+ * File originates from the cpython source found integration Doc/tools/sphinxext/static/copybutton.js
  *
  */
 $(document).ready(function() {
@@ -432,7 +432,7 @@ $(document).ready(function() {
          button.attr('title', hide_text);
          jthis.prepend(button);
       }
-      // tracebacks (.gt) contain bare text elements that need to be wrapped in a span to work with .nextUntil() (see later)
+      // tracebacks (.gt) contain bare text elements that need to be wrapped integration a span to work with .nextUntil() (see later)
       jthis.find('pre:has(.gt)').contents().filter(function() {
          return ((this.nodeType == 3) && (this.data.trim().length > 0));
       }).wrap('<span>');

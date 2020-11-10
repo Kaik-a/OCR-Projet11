@@ -29,7 +29,7 @@ test('appends to the dropdown parent', function (assert) {
     assert.equal(
         $parent.children().length,
         1,
-        'Only the select should be in the container'
+        'Only the select should be integration the container'
     );
 
     var $dropdown = dropdown.render();
@@ -49,7 +49,7 @@ test('appends to the dropdown parent', function (assert) {
     assert.equal(
         $parent.children().length,
         2,
-        'The dropdown should now be in the container as well'
+        'The dropdown should now be integration the container as well'
     );
 
     assert.ok(

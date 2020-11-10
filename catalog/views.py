@@ -68,7 +68,7 @@ def results(request, base_product):
 
 @login_required
 def save(request, base_product: UUID, substitute_product: UUID):
-    """Save a product in favorite"""
+    """Save a product integration favorite"""
     user = request.user
 
     new_favorite, substitute = get_favorite_info(base_product, substitute_product, user)

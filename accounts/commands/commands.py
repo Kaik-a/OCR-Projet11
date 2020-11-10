@@ -38,7 +38,7 @@ def mail_subscription(request, data: Dict) -> None:
     Send mail for subscription.
 
     :param request: django's request
-    :param Dict data: data sent in subscription
+    :param Dict data: data sent integration subscription
     :rtype: None
     """
     guid = uuid.uuid4()

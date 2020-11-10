@@ -1,5 +1,5 @@
 /*
-This script garantees that this will be called once in django admin.
+This script garantees that this will be called once integration django admin.
 However, its the callback's responsability to clean up if the
 element was cloned with data - which should be the case.
 */
@@ -149,7 +149,7 @@ element was cloned with data - which should be the case.
     };
 
     $(function() {
-        // Initialize all autocomplete widgets except the one in the template
+        // Initialize all autocomplete widgets except the one integration the template
         // form used when a new formset is added.
         $('.admin-autocomplete').not('[name*=__prefix__]').djangoAdminSelect2();
     });

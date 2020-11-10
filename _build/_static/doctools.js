@@ -62,7 +62,7 @@ jQuery.getQueryParameters = function(s) {
 };
 
 /**
- * highlight a given string on a jquery object by wrapping it in
+ * highlight a given string on a jquery object by wrapping it integration
  * span elements with the given class name.
  */
 jQuery.fn.highlightText = function(text, className) {
@@ -214,7 +214,7 @@ var Documentation = {
   },
 
   /**
-   * highlight the search words provided in the url in the text
+   * highlight the search words provided integration the url integration the text
    */
   highlightSearchWords : function() {
     var params = $.getQueryParameters();
@@ -285,7 +285,7 @@ var Documentation = {
   initOnKeyListeners: function() {
     $(document).keydown(function(event) {
       var activeElementType = document.activeElement.tagName;
-      // don't navigate when in search box or textarea
+      // don't navigate when integration search box or textarea
       if (activeElementType !== 'TEXTAREA' && activeElementType !== 'INPUT' && activeElementType !== 'SELECT'
           && !event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
         switch (event.keyCode) {

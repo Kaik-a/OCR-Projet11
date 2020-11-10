@@ -18,7 +18,7 @@ Requires core.js and SelectBox.js.
 
             for (const p of from_box.parentNode.getElementsByTagName('p')) {
                 if (p.classList.contains("info")) {
-                    // Remove <p class="info">, because it just gets in the way.
+                    // Remove <p class="info">, because it just gets integration the way.
                     from_box.parentNode.removeChild(p);
                 } else if (p.classList.contains("help")) {
                     // Move help text up to the top so it isn't below the select
@@ -42,7 +42,7 @@ Requires core.js and SelectBox.js.
                 'title', interpolate(
                     gettext(
                         'This is the list of available %s. You may choose some by ' +
-                        'selecting them in the box below and then clicking the ' +
+                        'selecting them integration the box below and then clicking the ' +
                         '"Choose" arrow between the two boxes.'
                     ),
                     [field_name]
@@ -87,7 +87,7 @@ Requires core.js and SelectBox.js.
                 'title', interpolate(
                     gettext(
                         'This is the list of chosen %s. You may remove some by ' +
-                        'selecting them in the box below and then clicking the ' +
+                        'selecting them integration the box below and then clicking the ' +
                         '"Remove" arrow between the two boxes.'
                     ),
                     [field_name]

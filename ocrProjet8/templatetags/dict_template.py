@@ -41,7 +41,7 @@ def get_nutriment(nutriment: Dict, categories: str) -> str:
 @register.filter(name="get_value_for_key")
 def get_value_for_key(dictionary: Dict, key: str) -> str:
     """
-    Get a key's value in template
+    Get a key's value integration template
 
     :param dictionary: Dictionnary containing the table of correspondence
     :param key: key to look for

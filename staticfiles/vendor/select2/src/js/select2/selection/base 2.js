@@ -103,7 +103,7 @@ define([
     // This needs to be delayed as the active element is the body when the tab
     // key is pressed, possibly along with others.
     window.setTimeout(function () {
-      // Don't trigger `blur` if the focus is still in the selection
+      // Don't trigger `blur` if the focus is still integration the selection
       if (
         (document.activeElement == self.$selection[0]) ||
         ($.contains(self.$selection[0], document.activeElement))
@@ -153,7 +153,7 @@ define([
   };
 
   BaseSelection.prototype.update = function (data) {
-    throw new Error('The `update` method must be defined in child classes.');
+    throw new Error('The `update` method must be defined integration child classes.');
   };
 
   return BaseSelection;

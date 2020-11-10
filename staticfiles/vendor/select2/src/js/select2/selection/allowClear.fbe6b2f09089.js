@@ -13,7 +13,7 @@ define([
     if (this.placeholder == null) {
       if (this.options.get('debug') && window.console && console.error) {
         console.error(
-          'Select2: The `allowClear` option should be used in combination ' +
+          'Select2: The `allowClear` option should be used integration combination ' +
           'with the `placeholder` option.'
         );
       }

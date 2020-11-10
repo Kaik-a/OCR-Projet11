@@ -33,6 +33,6 @@
   }
 } (function (jQuery) {
   // This is needed so we can catch the AMD loader configuration and use it
-  // The inner file should be wrapped (by `banner.start.js`) in a function that
+  // The inner file should be wrapped (by `banner.start.js`) integration a function that
   // returns the AMD loader references.
   var S2 =
