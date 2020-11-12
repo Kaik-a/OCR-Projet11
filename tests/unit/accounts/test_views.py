@@ -71,7 +71,10 @@ class TestViews(TestPattern):
 
         self.assertEqual(response.status_code, 302)
 
-        self.assertEqual(response.request['PATH_INFO'], '/accounts/validate/password')
+        self.assertEqual(
+            response.request['PATH_INFO'],
+            '/accounts/validate/' + str(self.awaiting_data_1.guid)
+        )
 
     def test_validate(self):
         """Load validate on subscription"""
@@ -83,5 +86,5 @@ class TestViews(TestPattern):
 
         self.assertEqual(
             response.request['PATH_INFO'],
-            '/accounts/validate/subscription'
+            '/accounts/validate/' + str(self.awaiting_data_2.guid)
         )

@@ -40,7 +40,9 @@ class TestPattern(TestCase):
             guid=uuid4(),
             type="password",
             key="password",
-            value="1234").save()
+            value="1234")
+
+        self.awaiting_data_1.save()
 
         self.uuid_subscription = uuid4()
         self.awaiting_data_2 = AwaitingData(

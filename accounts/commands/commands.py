@@ -82,7 +82,7 @@ def mail_subscription(request, data: Dict) -> None:
     )
 
 
-def mail_password(user: str):
+def mail_password(request, user: str):
     """
     Send mail to reset password.
 
@@ -111,4 +111,11 @@ def mail_password(user: str):
         message,
         'pur.beurre.mbi@gmail.com',
         [user.email]
+    )
+
+    messages.add_message(
+        request,
+        25,
+        f"Un email vous a été envoyé à l'adresse {user.email} "
+        f"veuillez utiliser le lien fourni afin de réinitialiser votre mot de passe",
     )

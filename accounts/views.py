@@ -4,7 +4,6 @@ import uuid
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -47,7 +46,7 @@ def login_user(request, form: LoginForm) -> HttpResponse:
         messages.add_message(
             request,
             40,
-            "Aucun compte recensé avec cette combinaison. Votre email ou mot de "
+            "Aucun compte recensé avec cette combinaison. Votre login ou mot de "
             "passe sont peut être incorrects?",
         )
         return render(request, "login.html", {"form": form})
@@ -147,7 +146,7 @@ def send_reset(request, user: str) -> HttpResponse:
     :param str user: user to change password
     :return:
     """
-    mail_password(user)
+    mail_password(request, user)
 
     return redirect(reverse("home"))
 
@@ -169,6 +168,8 @@ def reset_password(request, user: str) -> HttpResponse:
 
             if user:
                 user.set_password(form.data.get("new_password"))
+
+                user.save()
 
                 messages.add_message(
                     request,

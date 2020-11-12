@@ -231,6 +231,17 @@ class SeleniumBasedTestCase(LiveServerTestCase):
 
         self.assertEqual(driver_2.title, "Login")
 
+        # log in
+        driver_2.find_element_by_id("id_login").send_keys("test1")
+
+        driver_2.find_element_by_id(
+            "id_password"
+        ).send_keys("new_password")
+
+        driver_2.find_element_by_id("login-button").click()
+
+        self.assertEqual(driver_2.title, "Compte")
+
         driver_2.close()
 
 
